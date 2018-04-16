@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('title', 255).notNullable().defaultTo('')
     table.string('location', 255).notNullable().defaultTo('')
     table.dateTime('start_date_time').notNullable().defaultTo(knex.raw('now()'))
+    table.integer('duration_minutes').notNullable().defaultTo(0)
     table.string('description').notNullable().defaultTo('')
     table.timestamps(true, true)
     // OR
