@@ -20,7 +20,7 @@ exports.seed = function(knex, Promise) {
           id: 3,
           first_name: "Steve",
           last_name: "Rogers",
-          email_address: "thecaptain @mcuhq.com",
+          email_address: "thecaptain@mcuhq.com",
           hashed_password: "$2a$10$jsitaILM0OI15oPGEXoxO.sFZ1d/xEEf70iFAq3PqL/vZ2Mfyj5QS"
         }, {
           id: 4,
