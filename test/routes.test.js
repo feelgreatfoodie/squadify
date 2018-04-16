@@ -12,11 +12,11 @@ const server = require('../app');
 const {
   addDatabaseHooks
 } = require('./utils')
-suite('event routes', addDatabaseHooks(() => {
-  test('GET /event', (done) => {
+suite('events routes', addDatabaseHooks(() => {
+  test('GET /events', (done) => {
     /* eslint-disable max-len */
     request(server)
-      .get('/event')
+      .get('/events')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, [{
@@ -31,10 +31,10 @@ suite('event routes', addDatabaseHooks(() => {
     /* eslint-enable max-len */
   });
 
-  test('GET /event/:id', (done) => {
+  test('GET /events/:id', (done) => {
     /* eslint-disable max-len */
     request(server)
-      .get('/event/1')
+      .get('/events/1')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect(200, {
