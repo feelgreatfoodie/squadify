@@ -7,15 +7,24 @@ const jwt = require('jsonwebtoken')
 
 
 const checkForExisitingEmail = (req, res, next) => {
-  // console.log('hola, me llamo: ', req.body, 'type', typeof(req.body))
   const { email_address } = req.body
-  // console.log('email_address ', email_address)
   knex('users')
     .where('email_address', email_address)
     .then(user => {
-      // console.log('hola me llamo: ', user.length)
       if (user.length === 1) {
         res.status(400).send('Email address already registered')
+      }
+      else next()
+    })
+}
+
+const checkForUser = (req, res, next) => {
+  const { id } = req.params
+  knex('users')
+    .where('id', id)
+    .then(user => {
+      if (user.length < 1) {
+        res.status(400).send(`No user found with id ${id}`)
       }
       else next()
     })
@@ -47,15 +56,12 @@ const getUsers = (req, res, next) => {
 
 const postUser = (req, res, next) => {
 
-console.log('whazzzzup')
   const {
     first_name,
     last_name,
     email_address,
     password
   } = req.body
-
-  console.log('hola, me llamo: ', req.body)
 
   bcrypt.hash(password, 10, (err, hashed_password) => {
     const newUser = {
@@ -69,7 +75,6 @@ console.log('whazzzzup')
       .insert(newUser)
       .returning(['id', 'first_name', 'last_name', 'email_address'])
       .then(user => {
-        // console.log('bueno: ', process.env.JWT_KEY)
         const token = jwt.sign({
           'id': user[0].id
         }, process.env.JWT_KEY)
@@ -84,11 +89,13 @@ console.log('whazzzzup')
 }
 
 const updateUser = (req, res, next) => {
+  const { id } = req.params
+  const { first_name, last_name, email_address, password } = req.body
+  console.log(req.body)
   knex('user')
     .where('id', id)
     .update({first_name, last_name, email_address})
     .returning('*')
-    .first()
     .then(user => {
       res.status(200).send(user)
     })
@@ -103,7 +110,6 @@ const deleteUser = (req, res, next) => {
     .where('id', id)
     .del()
     .returning(['first_name', 'last_name', 'email_address'])
-    .first()
     .then(user => {
       res.status(200).send(user)
     })
@@ -115,7 +121,7 @@ const deleteUser = (req, res, next) => {
 router.get('/', getUsers)
 router.get('/:id', getUsers)
 router.post('/', checkForExisitingEmail, postUser)
-router.patch('/:id', getUsers, updateUser)
-router.delete('/:id', getUsers, deleteUser)
+router.patch('/:id', checkForUser, updateUser)
+router.delete('/:id', checkForUser, deleteUser)
 
 module.exports = router
