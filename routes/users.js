@@ -3,8 +3,6 @@ const router = express.Router()
 const knex = require('../knex')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-// const dotenv = require('dotenv')
-
 
 const checkForExisitingEmail = (req, res, next) => {
   const { email_address } = req.body
@@ -91,13 +89,12 @@ const postUser = (req, res, next) => {
 const updateUser = (req, res, next) => {
   const { id } = req.params
   const { first_name, last_name, email_address, password } = req.body
-  console.log(req.body)
-  knex('user')
+  knex('users')
     .where('id', id)
     .update({first_name, last_name, email_address})
-    .returning('*')
+    .returning(['first_name', 'last_name', 'email_address'])
     .then(user => {
-      res.status(200).send(user)
+      res.status(200).send(user[0])
     })
     .catch(err => {
       next(err)
@@ -111,7 +108,7 @@ const deleteUser = (req, res, next) => {
     .del()
     .returning(['first_name', 'last_name', 'email_address'])
     .then(user => {
-      res.status(200).send(user)
+      res.status(200).send(user[0])
     })
     .catch(err => {
       next(err)
