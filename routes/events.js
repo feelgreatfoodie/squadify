@@ -8,12 +8,14 @@ const getEvents = (req, res, next) => {
       res.status(200).send(events)
     })
     .catch((err) => {
-     next(err)
-   })
+      next(err)
+    })
 }
 
 const verifyEvent = (req, res, next) => {
-  const { id } = req.params
+  const {
+    id
+  } = req.params
   knex('events')
     .where('id', id)
     .then(event => {
@@ -23,7 +25,9 @@ const verifyEvent = (req, res, next) => {
 }
 
 const getEventsById = (req, res, next) => {
-  const { id } = req.params
+  const {
+    id
+  } = req.params
   knex('events')
     .where('id', id)
     .first()
@@ -31,8 +35,8 @@ const getEventsById = (req, res, next) => {
       res.status(200).send(event)
     })
     .catch((err) => {
-     next(err)
-   })
+      next(err)
+    })
 }
 
 router.get('/', getEvents)
