@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "knex": "knex",
     "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
-    "nodemon": "JWT_KEY=secret nodemon ./bin/www",
+    "nodemon": "nodemon ./bin/www",
     "test": "mocha"
   },
   "dependencies": {
