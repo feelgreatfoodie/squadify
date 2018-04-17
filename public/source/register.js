@@ -1,7 +1,6 @@
 $(document).ready(function() {
   'use strict';
 
-
   console.log("load register");
 
   // eslint-disable-next-line max-statements
