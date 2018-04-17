@@ -111,7 +111,12 @@ const deleteEvent = (req, res, next) => {
     })
 }
 
+const renderEventPage = (req, res, next) => {
+  res.render('events', { title: 'Event Detail' })
+}
+
 router.get('/', getEvents)
+router.get('/:id', renderEventPage)
 router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
 router.post('/:id', joinEvent)
