@@ -11,7 +11,7 @@ var loginRouter = require('./routes/login')
 
 var app = express();
 
-if(process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 // view engine setup
