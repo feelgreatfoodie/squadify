@@ -12,6 +12,16 @@ const getEvents = (req, res, next) => {
    })
 }
 
+const verifyEvent = (req, res, next) => {
+  const { id } = req.params
+  knex('events')
+    .where('id', id)
+    .then(event => {
+      if (event.length === 0) res.status(404).send()
+      else next()
+    })
+}
+
 const getEventsById = (req, res, next) => {
   const { id } = req.params
   knex('events')
@@ -27,6 +37,6 @@ const getEventsById = (req, res, next) => {
 
 router.get('/', getEvents)
 
-router.get('/:id', getEventsById)
+router.get('/:id', verifyEvent, getEventsById)
 
 module.exports = router;
