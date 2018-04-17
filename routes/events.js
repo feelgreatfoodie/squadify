@@ -78,7 +78,13 @@ const joinEvent = (req, res, next) => {
 const updateEvent = (req, res, next) => {
   knex('events')
     .where('id', id)
-    .update({title, location, start_date_time, duration_minutes, description})
+    .update({
+      title,
+      location,
+      start_date_time,
+      duration_minutes,
+      description
+    })
     .returning('*')
     .first()
     .then(event => {
@@ -90,7 +96,9 @@ const updateEvent = (req, res, next) => {
 }
 
 const deleteEvent = (req, res, next) => {
-  const { id } = req.params
+  const {
+    id
+  } = req.params
   knex('events')
     .where('id', id)
     .del()
