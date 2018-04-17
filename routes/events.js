@@ -69,28 +69,13 @@ const postEvent = (req, res, next) => {
     })
     .catch(err => {
       next(err)
-    }) <<
-    <<
-    << < HEAD
-    .catch((err) => {
-      next(err)
     })
-}
-
-const verifyEvent = (req, res, next) => {
-  const {
-    id
-  } = req.params ===
-    ===
-    =
 }
 
 const joinEvent = (req, res, next) => {
   console.log('hola')
 }
-const updateEvent = (req, res, next) => { >>>
-  >>>
-  > f2bc1235d69b1f425429b7c61098c2ad1961e2a1
+const updateEvent = (req, res, next) => {
   knex('events')
     .where('id', id)
     .update({
