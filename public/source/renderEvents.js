@@ -13,7 +13,7 @@ $(document).ready(function() {
           <div class="col-md-4">
             <h2 class="titlerestrict">${data[i].title}</h2>
             <p class="descrestrict">${data[i].description}</p>
-            <p><a class="btn btn-secondary" href="" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="/events/${data[i].id}" role="button">View details &raquo;</a></p>
           </div>
           `)
       }
