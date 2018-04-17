@@ -7,15 +7,26 @@ $(document).ready(function() {
     success: (data) => {
       console.log(data)
       // UPDATE DOM!
+      // for (var i = 0; i < data.length; i++) {
+      //   $('#events').append(`
+      //       <li data-recordid="${data[i].id}">
+      //         ${data[i].title} - ${data[i].description}
+      //
+      //         <button class="del">X</button>
+      //       </li>
+      //     `)
+      // }
+
       for (var i = 0; i < data.length; i++) {
         $('#events').append(`
-            <li data-recordid="${data[i].id}">
-              ${data[i].title} - ${data[i].description}
-
-              <button class="del">X</button>
-            </li>
+          <div class="col-md-4">
+            <h2>${data[i].title}</h2>
+            <p>${data[i].description}</p>
+            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+          </div>
           `)
       }
+
       //$('.del').click(deleteHandler)
 
     },
