@@ -1,19 +1,19 @@
 (function() {
   'use strict';
 
-  $('.button-collapse').sideNav();
 
-
+  console.log("load register");
 
   // eslint-disable-next-line max-statements
-  $('#signUpForm').submit((event) => {
+  $('#register').submit((event) => {
     event.preventDefault();
+    console.log();
     var user = {}
 
-    const firstName = $('#firstName').val().trim();
-    const lastName = $('#lastName').val().trim();
-    const email = $('#email').val().trim();
-    const password = $('#password').val();
+    const firstName = $('#inputFirstName').val().trim();
+    const lastName = $('#inputLastName').val().trim();
+    const email = $('#inputEmail').val().trim();
+    const password = $('#inputPassword').val();
 
     // if (!firstName) {
     //   return alert('First name must not be blank');
@@ -37,40 +37,31 @@
       );
     }
 
-    bcrypt.hash(password, 10).then(function(hash) {
-      // Store hash in your password DB.
-      console.log(hash);
 
-      user = {
-        "first_name": firstName,
-        "last_name": lastName,
-        "email_address": email,
-        "hashed_password": hash
-      }
-      postRequest(user)
-    });
-
-
-
-
-    function postRequest(user) {
-      const options = {
-        contentType: 'application/json',
-        data: JSON.stringify(user),
-        dataType: 'json',
-        type: 'POST',
-        url: '/users'
-      };
-
-      $.ajax(options)
-        .done(() => {
-          //window.location.href = '/favorites.html';
-        })
-        .fail(($xhr) => {
-          alert(
-            'Something broke', $xhr.responseText
-          );
-        });
+    user = {
+      "first_name": firstName,
+      "last_name": lastName,
+      "email_address": email,
+      "password": password
     }
+
+    const options = {
+      contentType: 'application/json',
+      data: JSON.stringify(user),
+      dataType: 'json',
+      type: 'POST',
+      url: '/users'
+    };
+
+    $.ajax(options)
+      .done(() => {
+        console.log("ajax done", user);
+        //window.location.href = '/favorites.html';
+      })
+      .fail(($xhr) => {
+        alert(
+          'Something broke', $xhr.responseText
+        );
+      });
   });
 })();
