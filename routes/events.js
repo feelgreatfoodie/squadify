@@ -41,7 +41,6 @@ const getEvents = (req, res, next) => {
 }
 
 const postEvent = (req, res, next) => {
-  const request = JSON.parse(req.body)
   console.log('hola, me llamo: ', request)
 
   const {
