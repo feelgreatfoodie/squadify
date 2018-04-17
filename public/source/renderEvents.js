@@ -11,8 +11,8 @@ $(document).ready(function() {
       for (var i = 0; i < data.length; i++) {
         $('#events').append(`
           <div class="col-md-4">
-            <h2>${data[i].title}</h2>
-            <p>${data[i].description}</p>
+            <h2 class="titlerestrict">${data[i].title}</h2>
+            <p class="descrestrict">${data[i].description}</p>
             <p><a class="btn btn-secondary" href="" role="button">View details &raquo;</a></p>
           </div>
           `)
