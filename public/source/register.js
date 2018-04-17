@@ -1,4 +1,4 @@
-(function() {
+$(document).ready(function() {
   'use strict';
 
 
@@ -7,7 +7,7 @@
   // eslint-disable-next-line max-statements
   $('#register').submit((event) => {
     event.preventDefault();
-    console.log();
+    console.log('register submit event', event);
     var user = {}
 
     const firstName = $('#inputFirstName').val().trim();
@@ -44,6 +44,7 @@
       "email_address": email,
       "password": password
     }
+    console.log('user=', user);
 
     const options = {
       contentType: 'application/json',
@@ -64,4 +65,4 @@
         );
       });
   });
-})();
+});
