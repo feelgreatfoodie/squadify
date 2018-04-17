@@ -69,16 +69,37 @@ const postEvent = (req, res, next) => {
     })
     .catch(err => {
       next(err)
+    }) <<
+    <<
+    << < HEAD
+    .catch((err) => {
+      next(err)
     })
+}
+
+const verifyEvent = (req, res, next) => {
+  const {
+    id
+  } = req.params ===
+    ===
+    =
 }
 
 const joinEvent = (req, res, next) => {
   console.log('hola')
 }
-const updateEvent = (req, res, next) => {
+const updateEvent = (req, res, next) => { >>>
+  >>>
+  > f2bc1235d69b1f425429b7c61098c2ad1961e2a1
   knex('events')
     .where('id', id)
-    .update({title, location, start_date_time, duration_minutes, description})
+    .update({
+      title,
+      location,
+      start_date_time,
+      duration_minutes,
+      description
+    })
     .returning('*')
     .first()
     .then(event => {
@@ -90,7 +111,9 @@ const updateEvent = (req, res, next) => {
 }
 
 const deleteEvent = (req, res, next) => {
-  const { id } = req.params
+  const {
+    id
+  } = req.params
   knex('events')
     .where('id', id)
     .del()
