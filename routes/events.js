@@ -112,7 +112,7 @@ const deleteEvent = (req, res, next) => {
 }
 
 router.get('/', getEvents)
-router.get('/:id', verifyEvent, getEvents)
+router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
 router.post('/:id', joinEvent)
 router.patch('/:id', getEvents, updateEvent)
