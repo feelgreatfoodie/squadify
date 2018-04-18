@@ -28,8 +28,6 @@ $(document).ready(function() {
       return alert('Email must be valid');
     }
 
-
-
     user = {
       "email_address": email,
       "password": password
@@ -41,7 +39,7 @@ $(document).ready(function() {
       data: JSON.stringify(user),
       dataType: 'json',
       type: 'POST',
-      url: '/token'
+      url: '/login'
     };
 
     $.ajax(options)
