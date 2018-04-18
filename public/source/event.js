@@ -10,7 +10,8 @@ $(document).ready(function() {
     console.log('register submit event', event);
     var eventUser = {}
 
-    const eventId = window.QUERY_PARAMETERS.id;
+
+    const eventId = window.location.pathname.match(/[0-9]+/)[0]
     const userId = 0
 
     console.log('eventId=', eventId);
