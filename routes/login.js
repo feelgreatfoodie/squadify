@@ -1,20 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
 const knex = require('../knex')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('login', {
     title: 'Login'
-  });
-});
-
+  })
+})
 
 const checkForExistingEmail = (req, res, next) => {
-  console.log("checkForExistingEmail");
   const {
     email_address
   } = req.body
@@ -30,49 +27,32 @@ const checkForExistingEmail = (req, res, next) => {
 }
 
 function checkPassword(req, res) {
-  // console.log("checkPassword");
   const KEY = req.body.password
-  //console.log("then user and key=", KEY);
-  //console.log("email=", KEY);
-  // console.log("KEY", KEY)
-  // console.log("email", req.body.email)
+
   knex('users')
     .where('email_address', req.body.email_address)
     .first()
     .then((user) => {
-      // console.log(rows);
-      //console.log("user", user);
       bcrypt.compare(KEY, user.hashed_password, function(err, passwordRes) {
-        // res == true
-        // console.log('key', KEY);
-        // console.log('input hashed', rows.hashed_password);
-        // console.log('res', passwordRes);
-
-        //console.log("passwordRes=", passwordRes);
         if (passwordRes === true) {
           const token = jwt.sign({
             'id': user.id
           }, process.env.JWT_KEY)
-          console.log('token assigned: ', token)
           res.cookie(`token=${token}; Path=\/;.HttpOnly`)
           res.status(200).send(user)
         } else {
           res.setHeader('content-type', 'text/plain');
           res.status(400)
           res.send("Bad email or password")
-          //res.send(user)
         }
-      });
+      })
     })
     .catch((err) => {
-      //res.statusCode(400)
       res.setHeader('content-type', 'text/plain');
       res.status(400)
-      //res.send(err)
       res.send("Bad email or password")
     })
 }
-
 
 const postUser = (req, res, next) => {
   const {
@@ -97,7 +77,6 @@ const postUser = (req, res, next) => {
         const token = jwt.sign({
           'id': user[0].id
         }, process.env.JWT_KEY)
-        console.log('token: ', token)
         res.cookie(`token=${token}; Path=\/;.HttpOnly`)
         res.status(200).send(user)
       })
@@ -109,4 +88,4 @@ const postUser = (req, res, next) => {
 
 router.post('/', checkForExistingEmail, checkPassword)
 
-module.exports = router;
+module.exports = router
