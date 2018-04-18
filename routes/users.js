@@ -34,6 +34,7 @@ const getUsers = (req, res, next) => {
   if (id) {
     knex('users')
       .where('id', id)
+      .select('id', 'first_name', 'last_name', 'email_address')
       .first()
       .then(user => {
         res.status(200).send(user)
@@ -43,6 +44,7 @@ const getUsers = (req, res, next) => {
       })
   } else {
     knex('users')
+      .select('id', 'first_name', 'last_name', 'email_address')
       .then(users => {
         res.status(200).send(users)
       })
