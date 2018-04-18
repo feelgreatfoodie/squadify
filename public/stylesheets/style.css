@@ -45,5 +45,6 @@
 }
 
 .card-img {
-  opacity: .3
+  opacity: .3;
+  max-height: 200px;
 }
