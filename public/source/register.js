@@ -1,12 +1,9 @@
 $(document).ready(function() {
   'use strict';
 
-  console.log("load register");
-
   // eslint-disable-next-line max-statements
   $('#register').submit((event) => {
     event.preventDefault();
-    console.log('register submit event', event);
     var user = {}
 
     const firstName = $('#inputFirstName').val().trim();
@@ -14,13 +11,13 @@ $(document).ready(function() {
     const email = $('#inputEmail').val().trim();
     const password = $('#inputPassword').val();
 
-    // if (!firstName) {
-    //   return alert('First name must not be blank');
-    // }
-    //
-    // if (!lastName) {
-    //   return alert('Last name must not be blank');
-    // }
+    if (!firstName) {
+      return alert('First name must not be blank');
+    }
+
+    if (!lastName) {
+      return alert('Last name must not be blank');
+    }
 
     if (!email) {
       return alert('Email must not be blank');
@@ -43,7 +40,6 @@ $(document).ready(function() {
       "email_address": email,
       "password": password
     }
-    console.log('user=', user);
 
     const options = {
       contentType: 'application/json',
@@ -54,10 +50,7 @@ $(document).ready(function() {
     };
 
     $.ajax(options)
-      .done(() => {
-        console.log("ajax done", user);
-        //window.location.href = '/favorites.html';
-      })
+      .done()
       .fail(($xhr) => {
         alert(
           'Something broke', $xhr.responseText
