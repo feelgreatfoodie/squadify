@@ -76,6 +76,16 @@ const joinEvent = (req, res, next) => {
 }
 
 const updateEvent = (req, res, next) => {
+  const { id } = req.params
+  const {
+    owner_id,
+    title,
+    location,
+    start_date_time,
+    duration_minutes,
+    description
+  } = req.body
+
   knex('events')
     .where('id', id)
     .update({
@@ -86,9 +96,8 @@ const updateEvent = (req, res, next) => {
       description
     })
     .returning('*')
-    .first()
     .then(event => {
-      res.status(200).send(event)
+      res.status(200).send(event[0])
     })
     .catch(err => {
       next(err)
