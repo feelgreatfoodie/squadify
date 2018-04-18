@@ -54,7 +54,7 @@ exports.seed = function(knex, Promise) {
               title: "Bicycling Boulder with Eric",
               location: "Boulder, CO",
               difficulty: '3',
-              image_url: "https://g81-wardogs.herokuapp.com/assets/bicycling.jpeg",
+              image_url: "https://g81-wardogs.herokuapp.com/assets/bicycling.jpg",
               start_date_time: "2018-04-26T12:00:00Z",
               duration_minutes: 120,
               description: "Peddle yourself around town with Boulder's go to connoiseur of the outdoors! Become immersed in the spectacular nature surrounding the city, have didactic and thought-provoking conversations on a range of topics covering society, exercise science, computers, politics, and much, much more."
