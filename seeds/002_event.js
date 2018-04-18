@@ -47,7 +47,30 @@ exports.seed = function(knex, Promise) {
               start_date_time: "2018-04-23T18:30:00Z",
               duration_minutes: 60,
               description: "Let's meetup and climb at Earth Treks. Meet at the tables in the back by the bouldering area at 6:30pm. We'll pair or triple off and get some climbing in! P.S. Beginners and advanced climbers are always welcome. We typically have a mixed group of top rope and lead climbers of abilities from 5.6 to 5.12. If it is your first time to Earth Treks, show up a bit early to fill out the waiver and take the top rope belay test. You can still climb even if you don't know how to belay, so don't hesitate to join!"
-            }])
+            },
+            {
+              id: 5,
+              owner_id: 9,
+              title: "Bicycling Boulder with Eric",
+              location: "Boulder, CO",
+              difficulty: '3',
+              image_url: "https://g81-wardogs.herokuapp.com/assets/bicycling.jpeg",
+              start_date_time: "2018-04-26T12:00:00Z",
+              duration_minutes: 120,
+              description: "Peddle yourself around town with Boulder's go to connoiseur of the outdoors! Become immersed in the spectacular nature surrounding the city, have didactic and thought-provoking conversations on a range of topics covering society, exercise science, computers, politics, and much, much more."
+            },
+            {
+              id: 6,
+              owner_id: 2,
+              title: "Cooking with Gordon",
+              location: "Golden, CO",
+              difficulty: '5',
+              image_url: "https://g81-wardogs.herokuapp.com/assets/masterchef.jpg",
+              start_date_time: "2018-04-28T18:30:00Z",
+              duration_minutes: 120,
+              description: "Come find out how bad of a cook you are and how terrible your dishes taste while being berated by the 20 Michelin Starred chef of your dreams / daymares! Begin by asking Alexa 'how does my beouf bourguinon taste?' to get a feel for the fun that will be had at this tasty event. If you are up to snuff on your kitchen skills, you might actually receive a heartwarming compliment that will really just make your day!"
+            }
+          ])
         .then(() => {
           return knex.raw(`SELECT setval('events_id_seq', (SELECT MAX(id) FROM events));`)
         })

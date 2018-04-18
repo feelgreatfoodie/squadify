@@ -12,10 +12,10 @@ exports.seed = function(knex, Promise) {
           hashed_password: "$2a$10$y2pXTMDpQiZter2isn9t9eJYZYpUOfrldEh5xSt06.wWLpi.zvC52"
         }, {
           id: 2,
-          first_name: "Rodion",
-          last_name: "Raskolnikov",
-          email_address: "onepoundheavier@ussr.justice.org",
-          hashed_password: "$2a$10$Fhg0e4BoT1dDaw846w7Bn.zPPWIMufgIKWeoB5Py2VoXLpjrcG3Ti"
+          first_name: "Gordon",
+          last_name: "Ramsay",
+          email_address: "gordon@ramsay.com",
+          hashed_password: "$2b$10$EcWNikpBPnj.JDup2RKFZe3v26Qa3qX/RVqcvEpWPc0D8i5J6DWBu"
         }, {
           id: 3,
           first_name: "Steve",
@@ -46,7 +46,32 @@ exports.seed = function(knex, Promise) {
           last_name: "Carraway",
           email_address: "theobserver@limansions.com",
           hashed_password: "$2a$10$QtTqzI6mr381hMpEs10S/OuL74kMoNg49U7O1OxtgajFtkJaOi4t."
-          }])
+        },{
+          id: 8,
+          first_name: "Christian",
+          last_name: "Bourlier",
+          email_address: "chrisbourlier@hotmail.com",
+          hashed_password: "$2b$10$tY1M/HeKgkq0ST8nnDfyp.noPA3.YF5J5ITxn0NOjvkPlMDIefRUS"
+        },{
+          id: 9,
+          first_name: "Eric",
+          last_name: "Budd",
+          email_address: "ericbudd@gmail.com",
+          hashed_password: "$2b$10$G7gkb9t2lNdODI/m5UjxDe3MKTSymnm5RIu9yBuQVM.S57npdxovW"
+        },{
+          id: 10,
+          first_name: "Zach",
+          last_name: "Stevens",
+          email_address: "zachstevens39@gmail.com",
+          hashed_password: "$2b$10$oql58yKNg6gl5YkmbDMe7O7y2wpoL.GpbPRr6atY1jiMb6qMrTaFe"
+        },{
+          id: 11,
+          first_name: "Michael",
+          last_name: "Shields",
+          email_address: "thedevhut@gmail.com",
+          hashed_password: "$2b$10$RsM/zo5RyyNL0EGSB4O9U.fN1Nqej77Luy0Pr6ZNzEELFsFKe/Lxi"
+        }
+        ])
           .then(() => {
               return knex.raw(`SELECT setval('users_id_seq', (SELECT MAX(id) FROM users));`)
             })

@@ -60,6 +60,8 @@ typings/
 # next.js build output
 .next
 
+working.js
+
 .DS_Store
 package-lock.json
 yarn.lock
