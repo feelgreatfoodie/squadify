@@ -10,11 +10,16 @@ $(document).ready(function() {
 
       for (var i = 0; i < data.length; i++) {
         $('#events').append(`
-          <div class="col-md-4">
-            <h2 class="titlerestrict">${data[i].title}</h2>
-            <p class="descrestrict">${data[i].description}</p>
-            <p><a class="btn btn-secondary" href="/events/${data[i].id}" role="button">View details &raquo;</a></p>
+          <div class="col-md-4 card bg-light text-black">
+          <br>
+            <img class="card-img" src=${data[i].image_url} alt="img">
+            <div class="card-img-overlay">
+            <br>
+              <h5 class="titlerestrict">${data[i].title}</h5>
+              <p class="card-text descrestrict">${data[i].description}</p>
+              <p><a class="btn btn-secondary" href="/events/${data[i].id}" role="button">View details &raquo;</a></p>
           </div>
+          <br>
           `)
       }
 

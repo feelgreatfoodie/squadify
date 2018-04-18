@@ -43,3 +43,7 @@
   /* bg color = bg color under block */
   background: white;
 }
+
+.card-img {
+  opacity: .3
+}
