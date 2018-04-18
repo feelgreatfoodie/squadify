@@ -1,26 +1,18 @@
 $(document).ready(function() {
   'use strict';
 
-
-
-
   // eslint-disable-next-line max-statements
   $('#joinButton').click((event) => {
     event.preventDefault();
-    console.log('register submit event', event);
-    var eventUser = {}
-
+    let eventUser = {}
 
     const eventId = window.location.pathname.match(/[0-9]+/)[0]
-    const userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImlhdCI6MTUyNDAwNDM0M30.Tfj_J1i792CEbwu2ofmRC3wx9ltsZ-Dpb-AZeoyCmyQ"
-
-    console.log('eventId=', eventId);
+    const userToken = window.document.cookie.slice(6)
 
     eventUser = {
       "eventId": eventId,
       "userToken": userToken,
     }
-    console.log('eventUser=', eventUser);
 
     const options = {
       contentType: 'application/json',
@@ -31,14 +23,11 @@ $(document).ready(function() {
     };
 
     $.ajax(options)
-      .done(() => {
-        console.log("ajax done", user);
-        //window.location.href = '/favorites.html';
-      })
+      .done()
       .fail(($xhr) => {
         alert(
-          'Something broke', $xhr.responseText
-        );
-      });
-  });
-});
+          'User already registered for this event', $xhr.responseText
+        )
+      })
+  })
+})
