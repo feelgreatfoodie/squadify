@@ -118,7 +118,7 @@ const deleteUser = (req, res, next) => {
 }
 
 router.get('/', getUsers)
-router.get('/:id', getUsers)
+router.get('/:id', checkForUser, getUsers)
 router.post('/', checkForExisitingEmail, postUser)
 router.patch('/:id', checkForUser, updateUser)
 router.delete('/:id', checkForUser, deleteUser)
