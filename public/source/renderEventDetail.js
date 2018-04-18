@@ -1,23 +1,35 @@
 $(document).ready(function() {
   console.log('running renderEventDetail')
-  const pathing = window.location.pathname;
+  const pathing = window.location.pathname
+  const eventId = window.location.pathname.match(/[0-9]+/)[0]
   console.log(pathing)
+  console.log(eventId)
   $.ajax({
-    url: pathing,
+    url: `/events/data/${eventId}`,
     type: 'GET',
     success: (data) => {
       console.log(data)
       // UPDATE DOM!
 
-      $('#event-detail').append(`
-        <div class="col-md-4">
-          <h2>${data.title}</h2>
-          <p>Location: ${data.location}</p>
-          <p>Start time: ${data.start_date_time}</p>
-          <p>${data.description}</p>
-          <p><a id="join-button" class="btn btn-secondary" href="" role="button">Join event &raquo;</a></p>
-        </div>
-      `)
+      let eventDate = new Date(data.start_date_time).toDateString()
+      $('#event-title').append(`<div>${data.title}</div>`)
+      $('#event-description').append(`<div>${data.description}</div>`)
+      $('#event-location').append(`<div>${data.location}</div>`)
+      $('#event-date').append(`<div>${eventDate}</div>`)
+      $('#event-duration').append(`<div>${data.duration_minutes}</div>`)
+      // TODO: add 'difficulty' as a value in event database
+      console.log("TOP SECRET: 'difficulty' is actually just the owner_id, which is:", data.owner_id)
+      $('#event-difficulty').append(`<div>${data.owner_id}</div>`)
+
+      // $('#event-detail').append(`
+      //   <div class="col-md-4">
+      //     <h2>${data.title}</h2>
+      //     <p>Location: ${data.location}</p>
+      //     <p>Start time: ${data.start_date_time}</p>
+      //     <p>${data.description}</p>
+      //     <p><a id="join-button" class="btn btn-secondary" href="" role="button">Join event &raquo;</a></p>
+      //   </div>
+      // `)
 
       // for (var i = 0; i < data.length; i++) {
       //   $('#event-detail').append(`
