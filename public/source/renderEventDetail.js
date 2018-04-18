@@ -12,7 +12,7 @@ $(document).ready(function() {
       // UPDATE DOM!
 
       let eventDate = new Date(data.start_date_time).toDateString()
-      $('#event-image').append(`<img src=${data.image_url}>`)
+      $('#event-image').attr(`src`,`${data.image_url}`)
       $('#event-title').append(`<div>${data.title}</div>`)
       $('#event-description').append(`<div>${data.description}</div>`)
       $('#event-location').append(`<div>${data.location}</div>`)
