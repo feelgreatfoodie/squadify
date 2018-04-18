@@ -51,14 +51,15 @@
       <img class="card-img-top" src="../assets/divide.jpg" alt="Card image cap">
       <div class="card-body">
         <!-- TODO: Update via event ID -->
-        <h5 class="card-title">Snowmobile The Great Divide</h5>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <h5 class="card-title" id="event-title"></h5>
+        <p class="card-text" id="event-description"></p>
       </div>
       <ul class="list-group list-group-flush">
         <!-- TODO: Update LOCATION, DATE, DIFFICULTY via event ID -->
-        <li class="list-group-item">Breckenridge, Colorado</li>
-        <li class="list-group-item">Dates: Winter Seasonal</li>
-        <li class="list-group-item">Difficulty: 2 out of 5</li>
+        <li class="list-group-item" id="event-location">Location: </li>
+        <li class="list-group-item" id="event-date">Date: </li>
+        <li class="list-group-item" id="event-duration">Duration (in minutes): </li>
+        <li class="list-group-item" id="event-difficulty">Difficulty: </li>
       </ul>
       <div class="card-body">
         <!-- BUTTON to JOIN event  -->
@@ -78,6 +79,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
   <script src="../source/event.js" charset="utf-8"></script>
+  <script src="../source/renderEventDetail.js" charset="utf-8"></script>
 </body>
 
 </html>
