@@ -12,13 +12,13 @@ $(document).ready(function() {
 
 
     const eventId = window.location.pathname.match(/[0-9]+/)[0]
-    const userId = 0
+    const userToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsImlhdCI6MTUyNDAwNDM0M30.Tfj_J1i792CEbwu2ofmRC3wx9ltsZ-Dpb-AZeoyCmyQ"
 
     console.log('eventId=', eventId);
 
     eventUser = {
       "eventId": eventId,
-      "userId": userId,
+      "userToken": userToken,
     }
     console.log('eventUser=', eventUser);
 
