@@ -34,7 +34,26 @@ exports.seed = function(knex, Promise) {
         }, {
           events_id: 4,
           users_id: 7
-        }])
+        }, {
+          events_id: 5,
+          users_id: 8
+        }, {
+          events_id: 5,
+          users_id: 9
+        }, {
+          events_id: 6,
+          users_id: 8
+        }, {
+          events_id: 6,
+          users_id: 2
+        }, {
+          events_id: 5,
+          users_id: 11
+        }, {
+          events_id: 6,
+          users_id: 3
+        }
+      ])
       ])
     })
 }
