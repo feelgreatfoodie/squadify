@@ -41,7 +41,6 @@ const getEvents = (req, res, next) => {
 }
 
 const postEvent = (req, res, next) => {
-  console.log('hola, me llamo: ', request)
 
   const {
     owner_id,
@@ -50,9 +49,10 @@ const postEvent = (req, res, next) => {
     start_date_time,
     duration_minutes,
     description
-  } = request
+  } = req.body
 
   const newEvent = {
+    'owner_id': owner_id,
     'title': title,
     'location': location,
     'start_date_time': start_date_time,
@@ -72,8 +72,9 @@ const postEvent = (req, res, next) => {
 }
 
 const joinEvent = (req, res, next) => {
-  console.log('hola')
+  console.log("Hola, Meester Superman es not home")
 }
+
 const updateEvent = (req, res, next) => {
   knex('events')
     .where('id', id)
@@ -102,9 +103,8 @@ const deleteEvent = (req, res, next) => {
     .where('id', id)
     .del()
     .returning('*')
-    .first()
     .then(event => {
-      res.status(200).send(event)
+      res.status(200).send(event[0])
     })
     .catch(err => {
       next(err)
@@ -120,7 +120,7 @@ router.get('/:id', renderEventPage)
 router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
 router.post('/:id', joinEvent)
-router.patch('/:id', getEvents, updateEvent)
-router.delete('/:id', getEvents, deleteEvent)
+router.patch('/:id', verifyEvent, updateEvent)
+router.delete('/:id', verifyEvent, deleteEvent)
 
 module.exports = router;
