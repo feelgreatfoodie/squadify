@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.integer('owner_id').notNullable()
     table.string('title', 255).notNullable().defaultTo('')
     table.string('location', 255).notNullable().defaultTo('')
-    table.integer('difficulty').notNullable().defaultTo('')
+    table.integer('difficulty').notNullable().defaultTo(1)
     table.string('image_url', 255).notNullable().defaultTo('')
     table.dateTime('start_date_time').notNullable().defaultTo(knex.raw('now()'))
     table.integer('duration_minutes').notNullable().defaultTo(0)
