@@ -24,10 +24,10 @@ $(document).ready(function() {
 
     $.ajax(options)
       .done()
-      .fail(($xhr) => {
-        alert(
-          'Something broke', $xhr.responseText
-        );
-      });
+      // .fail(($xhr) => {
+      //   alert(
+      //     'Something broke', $xhr.responseText
+      //   );
+      // });
   });
 });

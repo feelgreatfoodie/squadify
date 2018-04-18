@@ -3,6 +3,7 @@ const router = express.Router()
 const knex = require('../knex')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const boom = require('boom')
 
 
 const verifyEvent = (req, res, next) => {
@@ -13,6 +14,17 @@ const verifyEvent = (req, res, next) => {
     .where('id', id)
     .then(event => {
       if (event.length === 0) res.status(404).send(`No event found with id ${id}`)
+      else next()
+    })
+}
+
+const verifyUserEvent = (req, res, next) => {
+  const events_id = req.body.eventId
+  const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
+  knex('events_users')
+    .where({events_id, users_id})
+    .then(match => {
+      if(match.length > 0) res.status(400).send('Already registered!')
       else next()
     })
 }
@@ -155,7 +167,7 @@ router.get('/', getEvents)
 router.get('/:id', verifyEvent, renderEventPage)
 router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
-router.post('/:id', verifyEvent, joinEvent)
+router.post('/:id', verifyEvent, verifyUserEvent, joinEvent)
 router.post('/unJoin/:id', verifyEvent, unJoinEvent)
 router.patch('/:id', verifyEvent, updateEvent)
 router.delete('/:id', verifyEvent, deleteEvent)
