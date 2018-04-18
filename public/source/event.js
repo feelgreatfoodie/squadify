@@ -2,7 +2,7 @@ $(document).ready(function() {
   'use strict';
 
 
-  console.log("event id", eventId);
+
 
   // eslint-disable-next-line max-statements
   $('#joinButton').click((event) => {
@@ -12,6 +12,8 @@ $(document).ready(function() {
 
     const eventId = window.QUERY_PARAMETERS.id;
     const userId = 0
+
+    console.log('eventId=', eventId);
 
     eventUser = {
       "eventId": eventId,
