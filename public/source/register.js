@@ -53,8 +53,8 @@ $(document).ready(function() {
       .done()
       .fail(($xhr) => {
         alert(
-          'Something broke', $xhr.responseText
-        );
-      });
-  });
-});
+          $xhr.responseText
+        )
+      })
+  })
+})

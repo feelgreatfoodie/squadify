@@ -20,13 +20,13 @@ $(document).ready(function() {
       dataType: 'json',
       type: 'POST',
       url: `/events/${eventId}`
-    };
+    }
 
     $.ajax(options)
       .done()
       .fail(($xhr) => {
         alert(
-          'User already registered for this event', $xhr.responseText
+          $xhr.responseText
         )
       })
   })
