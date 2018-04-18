@@ -4,7 +4,7 @@ $(document).ready(function() {
   // eslint-disable-next-line max-statements
   $('#joinButton').click((event) => {
     event.preventDefault();
-    var eventUser = {}
+    let eventUser = {}
 
     const eventId = window.location.pathname.match(/[0-9]+/)[0]
     const userToken = window.document.cookie.slice(6)
@@ -24,10 +24,10 @@ $(document).ready(function() {
 
     $.ajax(options)
       .done()
-      // .fail(($xhr) => {
-      //   alert(
-      //     'Something broke', $xhr.responseText
-      //   );
-      // });
-  });
-});
+      .fail(($xhr) => {
+        alert(
+          'User already registered for this event', $xhr.responseText
+        )
+      })
+  })
+})

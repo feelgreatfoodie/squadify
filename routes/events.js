@@ -24,7 +24,10 @@ const verifyUserEvent = (req, res, next) => {
   knex('events_users')
     .where({events_id, users_id})
     .then(match => {
-      if(match.length > 0) res.status(400).send('Already registered!')
+      if(match.length > 0) {
+        // alert('Already registered!')
+        res.status(400).send('Already registered!')
+      }
       else next()
     })
 }
