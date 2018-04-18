@@ -76,18 +76,31 @@ const postEvent = (req, res, next) => {
 const joinEvent = (req, res, next) => {
   const events_id = req.body.eventId
   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
-console.log('this is users_id', users_id)
   knex('events_users')
     .insert({events_id, users_id})
     .returning('*')
     .then(entry => {
-      console.log('this is my entry', entry[0])
       res.status(200).send(entry)
     })
     .catch(err => {
       next(err)
     })
 }
+
+const unJoinEvent = (req, res, next) => {
+  const events_id = req.body.eventId
+  const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
+  knex('events_users')
+    .where({events_id, users_id})
+    .del()
+    .returning('*')
+    .then(entry => {
+      res.status(200).send(entry)
+    })
+    .catch(err => {
+      next(err)
+    })
+  }
 
 const updateEvent = (req, res, next) => {
   const { id } = req.params
@@ -143,6 +156,7 @@ router.get('/:id', verifyEvent, renderEventPage)
 router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
 router.post('/:id', verifyEvent, joinEvent)
+router.post('/unJoin/:id', verifyEvent, unJoinEvent)
 router.patch('/:id', verifyEvent, updateEvent)
 router.delete('/:id', verifyEvent, deleteEvent)
 
