@@ -7,24 +7,19 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- <link rel="icon" href="../../../../favicon.ico"> -->
-
-  <title><%= title %></title>
-
-  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="../stylesheets/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
-  <!-- Custom styles for this template -->
-  <link rel="stylesheet" href="../stylesheets/style.css">
+  <title>
+    <%= title %>
+  </title>
 
 </head>
 
 <body>
-
-  <!-- NAVIGAVTION BAR  -->
+  <!-- Navigation Bar  -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <%= title %>
-    </a>
+    <a class="navbar-brand" href="/">WarDogs</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,7 +27,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="./loginDEV.html">Log In</a>
+          <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Dashboard</a>
@@ -48,15 +43,34 @@
     </div>
   </nav>
 
-  <div class="container-fluid">
+  <main role="main">
 
-  </div>
+    <div class="container-fluid">
+      <img class="img-thumbnail" src="../assets/14_Mike.jpg" alt="User Profile Image" height="64" width="64">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title" id="user-name">User Name</h4>
+          <p class="card-text">Here is your user profile - a short description of where you're from and what you outdoor activities you enjoy in a maximum of XYX characters.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <!-- Thinking that as you click on the badge, a div will expand to show the content i.e. Hosting "4" > Click "4" > Dropdown list of events specific user is set as host -->
+          <li class="list-group-item" id="user-host">Hosting <span class="badge badge-info">1</span></li>
+          <li class="list-group-item" id="user-going">Participating <span class="badge badge-info">2</span></li>
+          <li class="list-group-item" id="user-wish">Wish List <span class="badge badge-info">4</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="container-fluid">
+    <p>&copy; Company 2017-2018</p>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-  <script src="../source/register.js"></script>
-
+  <script src="" charset="utf-8"></script>
 </body>
 
 </html>
