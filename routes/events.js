@@ -17,17 +17,40 @@ const verifyEvent = (req, res, next) => {
     })
 }
 
+
+const verifyJoined = (req, res, next) => {
+  const events_id = req.params.id
+  const users_id = jwt.verify(req.cookies.token, process.env.JWT_KEY).id
+  console.log("events_id", events_id);
+  console.log("users_id", users_id);
+  res.locals.registered = false;
+
+  knex('events_users')
+    .where({
+      events_id,
+      users_id
+    })
+    .then(match => {
+      if (match.length > 0) {
+        res.locals.registered = true;
+        next()
+      } else next()
+    })
+}
+
 const verifyUserEvent = (req, res, next) => {
   const events_id = req.body.eventId
-  const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
+  const users_id = jwt.verify(req.cookies.token, process.env.JWT_KEY).id
   knex('events_users')
-    .where({events_id, users_id})
+    .where({
+      events_id,
+      users_id
+    })
     .then(match => {
-      if(match.length > 0) {
+      if (match.length > 0) {
         // alert('Already registered!')
         res.status(400).send('Already registered!')
-      }
-      else next()
+      } else next()
     })
 }
 
@@ -91,7 +114,10 @@ const joinEvent = (req, res, next) => {
   const events_id = req.body.eventId
   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
   knex('events_users')
-    .insert({events_id, users_id})
+    .insert({
+      events_id,
+      users_id
+    })
     .returning('*')
     .then(entry => {
       res.status(200).send(entry)
@@ -105,7 +131,10 @@ const unJoinEvent = (req, res, next) => {
   const events_id = req.body.eventId
   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
   knex('events_users')
-    .where({events_id, users_id})
+    .where({
+      events_id,
+      users_id
+    })
     .del()
     .returning('*')
     .then(entry => {
@@ -114,10 +143,12 @@ const unJoinEvent = (req, res, next) => {
     .catch(err => {
       next(err)
     })
-  }
+}
 
 const updateEvent = (req, res, next) => {
-  const { id } = req.params
+  const {
+    id
+  } = req.params
   const {
     owner_id,
     title,
@@ -162,11 +193,19 @@ const deleteEvent = (req, res, next) => {
 }
 
 const renderEventPage = (req, res, next) => {
-  res.render('events', { title: 'Event Detail' })
+  let registered = "Join Event"
+  if (res.locals.registered) {
+    registered = "Leave Event"
+  }
+
+  res.render('events', {
+    title: 'Event Detail',
+    registered: registered
+  })
 }
 
 router.get('/', getEvents)
-router.get('/:id', verifyEvent, renderEventPage)
+router.get('/:id', verifyEvent, verifyJoined, renderEventPage)
 router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
 router.post('/:id', verifyEvent, verifyUserEvent, joinEvent)
