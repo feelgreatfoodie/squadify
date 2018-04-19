@@ -9,7 +9,7 @@ $(document).ready(function() {
       for (let i = 0; i < data.length; i++) {
         $('#team').append(`
           <div class="card mx-auto" style="width: 18rem;">
-            <img class="card-img-top" src=${data[i].image_url} alt="Card image cap">
+            <img class="card-img-top team-img" src=${data[i].image_url} alt="Card image cap">
             <div class="card-body">
             <h5 class="titlerestrict">${data[i].first_name} ${data[i].last_name}</h5>
             <p class="card-text descrestrict">${data[i].email_address}</p>
