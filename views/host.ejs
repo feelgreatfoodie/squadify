@@ -9,6 +9,11 @@
   <!-- <link rel="icon" href="../../../../favicon.ico"> -->
   <link rel="stylesheet" href="../stylesheets/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/js/tempusdominus-bootstrap-4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha18/css/tempusdominus-bootstrap-4.min.css" />
+
 
   <title>
     <%= title %>
@@ -35,27 +40,33 @@
               Please enter an event title.
             </div>
           </div>
-          <div class="col-md-4 mb-3">
-            <label for="validationCustom02">Adventure Location</label>
-            <input type="text" class="form-control" id="validationCustom02" placeholder="Adventure starting location" value="" required>
+          <div class="col-md-3 mb-3">
+            <label for="validationCustom05">Adventure Description</label>
+            <input type="text" class="form-control" id="validationCustom02" placeholder="Enter a description" required>
             <div class="invalid-feedback">
-              Please enter the starting location.
+              Please provide a description.
             </div>
           </div>
           <div class="col-md-3 mb-3">
-            <label for="validationCustom05">Adventure Description</label>
-            <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+            <label for="validationCustom04">Adventure Date & Time</label>
+              <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" id="validationCustom03" data-toggle="datetimepicker" data-target="#datetimepicker5" required>
             <div class="invalid-feedback">
-              Please provide a description.
+              Please select a date and time.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom02">Adventure Location</label>
+            <input type="text" class="form-control" id="validationCustom04" placeholder="Adventure starting location" value="" required>
+            <div class="invalid-feedback">
+              Please enter the starting location.
             </div>
           </div>
           <div class="col-md-4 mb-3">
             <label for="validationCustomUsername">Adventure Difficulty</label>
             <div class="input-group">
               <div class="input-group-prepend">
-                <!-- <span class="input-group-text" id="inputGroupPrepend">@</span> -->
               </div>
-              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Enter level of difficulty from 1-5" aria-describedby="inputGroupPrepend" required>
+              <input type="text" class="form-control" id="validationCustom05" placeholder="Enter level of difficulty from 1-5" aria-describedby="inputGroupPrepend" required>
               <div class="invalid-feedback">
                 Please enter level of difficulty.
               </div>
@@ -65,14 +76,7 @@
         <div class="form-row">
           <div class="col-md-6 mb-3">
             <label for="validationCustom03">Adventure Image</label>
-            <input type="text" class="form-control" id="validationCustom03" placeholder="Image URL" required>
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="validationCustom04">Adventure Date</label>
-            <input type="text" class="form-control" id="validationCustom04" placeholder="Enter the adventure's date" required>
-            <div class="invalid-feedback">
-              Please provide a date.
-            </div>
+            <input type="text" class="form-control" id="validationCustom06" placeholder="Image URL" required>
           </div>
         </div>
         <div class="form-group">
@@ -120,7 +124,12 @@
           }, false);
         });
       }, false);
+
+      $(function() {
+        $('#datetimepicker5').datetimepicker();
+      });
     })();
+
   </script>
 </body>
 
