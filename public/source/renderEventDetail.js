@@ -1,9 +1,8 @@
 $(document).ready(function() {
-  console.log('running renderEventDetail')
+
   const pathing = window.location.pathname
   const eventId = window.location.pathname.match(/[0-9]+/)[0]
-  console.log(pathing)
-  console.log(eventId)
+
   $.ajax({
     url: `/events/data/${eventId}`,
     type: 'GET',
