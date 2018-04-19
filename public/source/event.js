@@ -6,8 +6,15 @@ $(document).ready(function() {
     event.preventDefault();
     let eventUser = {}
 
+    if (!window.document.cookie) {
+      window.location.href = "/login"
+      return
+    }
+
+
     const eventId = window.location.pathname.match(/[0-9]+/)[0]
     const userToken = window.document.cookie.slice(6)
+
 
     eventUser = {
       "eventId": eventId,

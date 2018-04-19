@@ -19,6 +19,9 @@ const verifyEvent = (req, res, next) => {
 
 
 const verifyJoined = (req, res, next) => {
+  if (!req.cookies.token)
+    next()
+
   const events_id = req.params.id
   const users_id = jwt.verify(req.cookies.token, process.env.JWT_KEY).id
   console.log("events_id", events_id);
