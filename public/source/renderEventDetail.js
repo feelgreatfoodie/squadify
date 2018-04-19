@@ -8,8 +8,6 @@ $(document).ready(function() {
     type: 'GET',
     success: (data) => {
 
-      console.log(data);
-
       let fullName = `${data.first_name} ${data.last_name}`
 
       let eventDate = new Date(data.start_date_time).toDateString()
