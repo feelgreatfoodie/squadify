@@ -73,12 +73,13 @@ const postUser = (req, res, next) => {
 
     knex('users')
       .insert(newUser)
-      .returning(['id', 'first_name', 'last_name', 'email_address'])
+      .returning(['id', 'first_name', 'last_name', 'email_address', 'image_url'])
       .then(user => {
         const token = jwt.sign({
           'id': user[0].id,
           'first_name': user[0].first_name,
-          'last_name': user[0].last_name
+          'last_name': user[0].last_name,
+          'image_url': user[0].image_url
         }, process.env.JWT_KEY)
         res.cookie(`token=${token}; Path=\/;.HttpOnly`)
         res.status(200).send(user)
