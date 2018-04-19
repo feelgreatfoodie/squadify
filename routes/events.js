@@ -17,7 +17,6 @@ const verifyEvent = (req, res, next) => {
     })
 }
 
-
 const verifyJoined = (req, res, next) => {
   if (!req.cookies.token)
     next()
@@ -129,7 +128,7 @@ const postEvent = (req, res, next) => {
 //       next(err)
 //     })
 // }
-// 
+//
 // const unJoinEvent = (req, res, next) => {
 //   const events_id = req.body.eventId
 //   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id

@@ -8,10 +8,7 @@ router.get('/', function(req, res, next) {
   let tokenObject = ''
 
   if (req.cookies.token !== undefined) {
-    // console.log("req.cookies.token", req.cookies.token);
-    // console.log("process.env.JWT_KEY).id", process.env.JWT_KEY)
     tokenObject = jwt.verify(req.cookies.token, process.env.JWT_KEY)
-    console.log('hola, me llamo: ', tokenObject);
     userFullName = `${tokenObject.first_name} ${tokenObject.last_name}`
   }
 
