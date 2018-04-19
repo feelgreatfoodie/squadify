@@ -25,9 +25,11 @@ $(document).ready(function() {
     $.ajax(options)
       .done(function() {
         // window.location.href="/"
-        alert('Successfully joined event!')
+        $('#joinButton').innerText = "Leave Event"
+        //alert('Successfully joined event!')
       })
       .fail(($xhr) => {
+        $('#joinButton').innerText = "Join Event"
         alert($xhr.responseText)
       })
   })

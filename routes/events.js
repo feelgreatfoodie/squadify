@@ -41,6 +41,7 @@ const verifyJoined = (req, res, next) => {
 const verifyUserEvent = (req, res, next) => {
   const events_id = req.body.eventId
   const users_id = jwt.verify(req.cookies.token, process.env.JWT_KEY).id
+  res.locals.registered = false;
   knex('events_users')
     .where({
       events_id,
@@ -49,7 +50,11 @@ const verifyUserEvent = (req, res, next) => {
     .then(match => {
       if (match.length > 0) {
         // alert('Already registered!')
-        res.status(400).send('Already registered!')
+        //deleteEvent(req, res, next)
+        res.locals.registered = true;
+        //res.status(200).send()
+        //res.status(400).send('Already registered!')
+        next()
       } else next()
     })
 }
@@ -145,6 +150,46 @@ const unJoinEvent = (req, res, next) => {
     })
 }
 
+const toggleJoinEvent = (req, res, next) => {
+  const events_id = req.body.eventId
+  const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
+
+  console.log("res.locals.registered", res.locals.registered);
+
+  if (res.locals.registered) {
+
+    knex('events_users')
+      .where({
+        events_id,
+        users_id
+      })
+      .del()
+      .returning('*')
+      .then(entry => {
+        res.status(200).send(entry)
+      })
+      .catch(err => {
+        next(err)
+      })
+  } else {
+    knex('events_users')
+      .insert({
+        events_id,
+        users_id
+      })
+      .returning('*')
+      .then(entry => {
+        res.status(200).send(entry)
+      })
+      .catch(err => {
+        next(err)
+      })
+
+  }
+}
+
+
+
 const updateEvent = (req, res, next) => {
   const {
     id
@@ -211,7 +256,7 @@ router.get('/', getEvents)
 router.get('/:id', verifyEvent, verifyJoined, renderEventPage)
 router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
-router.post('/:id', verifyEvent, verifyUserEvent, joinEvent)
+router.post('/:id', verifyEvent, verifyUserEvent, toggleJoinEvent)
 router.post('/unJoin/:id', verifyEvent, unJoinEvent)
 router.patch('/:id', verifyEvent, updateEvent)
 router.delete('/:id', verifyEvent, deleteEvent)
