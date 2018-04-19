@@ -30,7 +30,7 @@ console.log('this is the users_id', users_id)
 console.log('hola, me llamo: ', newEvent)
   knex('events')
     .insert(newEvent)
-    .returning(['event_id', 'owner_id', 'title', 'location', 'difficulty', 'image_url', 'start_date_time', 'duration_minutes', 'description'])
+    .returning(['id', 'owner_id', 'title', 'location', 'difficulty', 'image_url', 'start_date_time', 'duration_minutes', 'description'])
     .then(event => {
       console.log('wasssssup!!!', event)
       res.status(200).send(event)
