@@ -58,6 +58,8 @@
   margin: 10px;
 }
 
-.team-img {
-  /* max-height: 220px */
+#event-image {
+  max-width: 75%;
+  margin: 20px;
+  border-radius: 10px;
 }

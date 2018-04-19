@@ -12,6 +12,7 @@ $(document).ready(function() {
 
       let eventDate = new Date(data.start_date_time).toDateString()
       $('#event-image').attr(`src`, `${data.image_url}`)
+      $('#event-image').attr(`class`, `mx-auto`)
       $('#event-title').append(`<div>${data.title}</div>`)
       $('#event-description').append(`<div>${data.description}</div>`)
       $('#event-host').append(`<div>${fullName}</div>`)
