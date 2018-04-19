@@ -3,6 +3,7 @@ const router = express.Router()
 const knex = require('../knex')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const nodemailer = require('nodemailer');
 
 
 const verifyEvent = (req, res, next) => {
@@ -13,7 +14,11 @@ const verifyEvent = (req, res, next) => {
     .where('id', id)
     .then(event => {
       if (event.length === 0) res.status(404).send(`No event found with id ${id}`)
-      else next()
+      else {
+        //console.log("event", event);
+        res.locals.host_id = event[0].owner_id
+        next()
+      }
     })
 }
 
@@ -184,6 +189,7 @@ const toggleJoinEvent = (req, res, next) => {
       .returning('*')
       .then(entry => {
         res.status(200).send(res.locals.registered)
+        next()
       })
       .catch(err => {
         next(err)
@@ -192,6 +198,49 @@ const toggleJoinEvent = (req, res, next) => {
   }
 }
 
+
+const emailEventHostOnJoin = (req, res, next) => {
+  console.log("emailEventHostOnJoin");
+  console.log(res.locals.host_id);
+  const user = jwt.verify(req.cookies.token, process.env.JWT_KEY)
+
+  knex('users')
+    .where({
+      id: res.locals.host_id,
+    })
+    //.del()
+    .then(host => {
+      console.log("user", host);
+      console.log("host.email_address", host[0].email_address);
+      //res.status(200).send(host)
+      let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'rocky.mntn.pols@gmail.com',
+          pass: '********'
+        }
+      });
+
+      let mailOptions = {
+        from: 'rocky.mntn.pols@gmail.com',
+        to: host[0].email_address,
+        subject: 'Sending Email using Node.js',
+        text: 'That was easy!'
+      };
+
+      transporter.sendMail(mailOptions, function(error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+
+    })
+    .catch(err => {
+      next(err)
+    })
+}
 
 
 const updateEvent = (req, res, next) => {
