@@ -10,7 +10,7 @@ exports.seed = function(knex, Promise) {
           last_name: "Bourlier",
           email_address: "christianbourlier@gmail.com",
           hashed_password: "$2b$10$tY1M/HeKgkq0ST8nnDfyp.noPA3.YF5J5ITxn0NOjvkPlMDIefRUS",
-          user_image_url: 'https://g81-wardogs.herokuapp.com/assets/Christian.jpg'
+          user_image_url: 'https://g81-wardogs.herokuapp.com/assets/christian1.jpg'
         },{
           id: 2,
           first_name: "Eric",
