@@ -68,7 +68,8 @@ const getEvents = (req, res, next) => {
   } = req.params
   if (id) {
     knex('events')
-      .where('id', id)
+      .where('events.id', id)
+      .innerJoin('users', 'events.owner_id', 'users.id')
       .first()
       .then(event => {
         res.status(200).send(event)
