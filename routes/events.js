@@ -239,10 +239,10 @@ const deleteEvent = (req, res, next) => {
 
 const renderEventPage = (req, res, next) => {
   let registered = "Join Event"
-  let buttonClass = "btn-outline-success"
+  let buttonClass = "btn-success"
   if (res.locals.registered) {
     registered = "Leave Event"
-    buttonClass = "btn-outline-danger"
+    buttonClass = "btn-danger"
   }
 
   res.render('events', {

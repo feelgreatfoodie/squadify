@@ -28,12 +28,12 @@ $(document).ready(function() {
         // window.location.href="/"
         if (registered === true) {
           $('#joinButton').text("Join Event")
-          $('#joinButton').addClass('btn-outline-success')
-          $('#joinButton').removeClass('btn-outline-danger')
+          $('#joinButton').addClass('btn-success')
+          $('#joinButton').removeClass('btn-danger')
         } else {
           $('#joinButton').text("Leave Event")
-          $('#joinButton').addClass('btn-outline-danger')
-          $('#joinButton').removeClass('btn-outline-success')
+          $('#joinButton').addClass('btn-danger')
+          $('#joinButton').removeClass('btn-success')
         }
         //alert('Successfully joined event!')
       })
