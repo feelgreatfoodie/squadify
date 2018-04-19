@@ -53,3 +53,7 @@
   max-height: 210px;
   max-width: 280px
 }
+
+.card {
+  margin: 10px;
+}

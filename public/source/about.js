@@ -5,11 +5,10 @@ $(document).ready(function() {
     type: 'GET',
     success: (data) => {
       // UPDATE DOM!
-      console.log('que onda buey?!')
 
       for (let i = 0; i < data.length; i++) {
         $('#team').append(`
-          <div class="card" style="width: 18rem;">
+          <div class="card mx-auto" style="width: 18rem;">
             <img class="card-img-top" src=${data[i].image_url} alt="Card image cap">
             <div class="card-body">
             <h5 class="titlerestrict">${data[i].first_name} ${data[i].last_name}</h5>
