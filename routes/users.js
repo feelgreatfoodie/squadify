@@ -78,7 +78,6 @@ const postUser = (req, res, next) => {
         const token = jwt.sign({
           'id': user[0].id
         }, process.env.JWT_KEY)
-        console.log('token: ', token)
         res.cookie(`token=${token}; Path=\/;.HttpOnly`)
         res.status(200).send(user)
       })

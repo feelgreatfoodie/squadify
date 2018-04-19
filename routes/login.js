@@ -36,7 +36,8 @@ const checkPassword = (req, res, next) => {
       bcrypt.compare(KEY, user.hashed_password, function(err, passwordRes) {
         if (passwordRes === true) {
           const token = jwt.sign({
-            'id': user.id
+            'id': user.id,
+            'first_name': user.first_name
           }, process.env.JWT_KEY)
           res.cookie(`token=${token}; Path=\/;.HttpOnly`)
           res.status(200).send(user)
@@ -75,7 +76,8 @@ const postUser = (req, res, next) => {
       .returning(['id', 'first_name', 'last_name', 'email_address'])
       .then(user => {
         const token = jwt.sign({
-          'id': user[0].id
+          'id': user[0].id,
+          'first_name': user[0].first_name
         }, process.env.JWT_KEY)
         res.cookie(`token=${token}; Path=\/;.HttpOnly`)
         res.status(200).send(user)
