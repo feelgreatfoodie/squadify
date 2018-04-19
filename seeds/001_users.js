@@ -8,28 +8,28 @@ exports.seed = function(knex, Promise) {
           id: 1,
           first_name: "Christian",
           last_name: "Bourlier",
-          email_address: "ChristianBourlier@gmail.com",
+          email_address: "christianbourlier@gmail.com",
           hashed_password: "$2b$10$tY1M/HeKgkq0ST8nnDfyp.noPA3.YF5J5ITxn0NOjvkPlMDIefRUS",
           image_url: 'https://g81-wardogs.herokuapp.com/assets/Christian.jpg'
         },{
           id: 2,
           first_name: "Eric",
           last_name: "Budd",
-          email_address: "EricBudd@gmail.com",
+          email_address: "ericbudd@gmail.com",
           hashed_password: "$2b$10$G7gkb9t2lNdODI/m5UjxDe3MKTSymnm5RIu9yBuQVM.S57npdxovW",
           image_url: 'https://g81-wardogs.herokuapp.com/assets/eric.jpg'
         },{
           id: 3,
           first_name: "Zach",
           last_name: "Stevens",
-          email_address: "ZachStevens39@gmail.com",
+          email_address: "zachstevens39@gmail.com",
           hashed_password: "$2b$10$oql58yKNg6gl5YkmbDMe7O7y2wpoL.GpbPRr6atY1jiMb6qMrTaFe",
           image_url: 'https://g81-wardogs.herokuapp.com/assets/zach.jpg'
         },{
           id: 4,
           first_name: "Michael",
           last_name: "Shields",
-          email_address: "MichaelTShields@gmail.com",
+          email_address: "thedevhut@gmail.com",
           hashed_password: "$2b$10$RsM/zo5RyyNL0EGSB4O9U.fN1Nqej77Luy0Pr6ZNzEELFsFKe/Lxi",
           image_url: 'https://g81-wardogs.herokuapp.com/assets/michael.jpg'
         },{
