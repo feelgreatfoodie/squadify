@@ -12,19 +12,19 @@ $(document).ready(function() {
     const password = $('#inputPassword').val();
 
     if (!firstName) {
-      return alert('First name must not be blank');
+      return alert('First name must not be blank')
     }
 
     if (!lastName) {
-      return alert('Last name must not be blank');
+      return alert('Last name must not be blank')
     }
 
     if (!email) {
-      return alert('Email must not be blank');
+      return alert('Email must not be blank')
     }
 
     if (email.indexOf('@') < 0) {
-      return alert('Email must be valid');
+      return alert('Email must be valid')
     }
 
     if (!password || password.length < 8) {
@@ -32,7 +32,6 @@ $(document).ready(function() {
         'Password must be at least 8 characters long'
       );
     }
-
 
     user = {
       "first_name": firstName,
@@ -47,14 +46,14 @@ $(document).ready(function() {
       dataType: 'json',
       type: 'POST',
       url: '/users'
-    };
+    }
 
     $.ajax(options)
-      .done()
+      .done(function() {
+        window.location.href="/"
+      })
       .fail(($xhr) => {
-        alert(
-          $xhr.responseText
-        )
+        alert($xhr.responseText)
       })
   })
 })

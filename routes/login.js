@@ -39,7 +39,7 @@ const checkPassword = (req, res, next) => {
             'id': user.id
           }, process.env.JWT_KEY)
           res.cookie(`token=${token}; Path=\/;.HttpOnly`)
-          next()
+          res.status(200).send(user)
         } else {
           res.setHeader('content-type', 'text/plain');
           res.status(400)
@@ -54,37 +54,37 @@ const checkPassword = (req, res, next) => {
     })
 }
 
-// const postUser = (req, res, next) => {
-//   const {
-//     first_name,
-//     last_name,
-//     email_address,
-//     password
-//   } = req.body
-//
-//   bcrypt.hash(password, 10, (err, hashed_password) => {
-//     const newUser = {
-//       'first_name': first_name,
-//       'last_name': last_name,
-//       'email_address': email_address,
-//       'hashed_password': hashed_password
-//     }
-//
-//     knex('users')
-//       .insert(newUser)
-//       .returning(['id', 'first_name', 'last_name', 'email_address'])
-//       .then(user => {
-//         const token = jwt.sign({
-//           'id': user[0].id
-//         }, process.env.JWT_KEY)
-//         res.cookie(`token=${token}; Path=\/;.HttpOnly`)
-//         res.status(200).send(user)
-//       })
-//       .catch(err => {
-//         next(err)
-//       })
-//   })
-// }
+const postUser = (req, res, next) => {
+  const {
+    first_name,
+    last_name,
+    email_address,
+    password
+  } = req.body
+
+  bcrypt.hash(password, 10, (err, hashed_password) => {
+    const newUser = {
+      'first_name': first_name,
+      'last_name': last_name,
+      'email_address': email_address,
+      'hashed_password': hashed_password
+    }
+
+    knex('users')
+      .insert(newUser)
+      .returning(['id', 'first_name', 'last_name', 'email_address'])
+      .then(user => {
+        const token = jwt.sign({
+          'id': user[0].id
+        }, process.env.JWT_KEY)
+        res.cookie(`token=${token}; Path=\/;.HttpOnly`)
+        res.status(200).send(user)
+      })
+      .catch(err => {
+        next(err)
+      })
+  })
+}
 
 router.post('/', checkForExistingEmail, checkPassword)
 

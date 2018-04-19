@@ -23,11 +23,12 @@ $(document).ready(function() {
     }
 
     $.ajax(options)
-      .done()
+      .done(function() {
+        // window.location.href="/"
+        alert('Successfully joined event!')
+      })
       .fail(($xhr) => {
-        alert(
-          $xhr.responseText
-        )
+        alert($xhr.responseText)
       })
   })
 })

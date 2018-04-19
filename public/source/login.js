@@ -4,7 +4,6 @@ $(document).ready(function() {
   // eslint-disable-next-line max-statements
   $('#login').submit((event) => {
     event.preventDefault();
-    var user = {}
 
     const email = $('#inputEmailL').val().trim();
     const password = $('#inputPasswordL').val();
@@ -17,7 +16,7 @@ $(document).ready(function() {
       return alert('Email must be valid');
     }
 
-    user = {
+    const user = {
       "email_address": email,
       "password": password
     }
@@ -28,14 +27,14 @@ $(document).ready(function() {
       dataType: 'json',
       type: 'POST',
       url: '/login'
-    };
+    }
 
     $.ajax(options)
-      .done()
+      .done(function() {
+        window.location.href="/"
+      })
       .fail(($xhr) => {
-        alert(
-          $xhr.responseText
-        )
+        alert($xhr.responseText)
       })
   })
 })
