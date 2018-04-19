@@ -11,27 +11,27 @@ $(document).ready(function() {
     const email = $('#inputEmail').val().trim();
     const password = $('#inputPassword').val();
 
-    if (!firstName) {
-      return alert('First name must not be blank')
-    }
-
-    if (!lastName) {
-      return alert('Last name must not be blank')
-    }
-
-    if (!email) {
-      return alert('Email must not be blank')
-    }
-
-    if (email.indexOf('@') < 0) {
-      return alert('Email must be valid')
-    }
-
-    if (!password || password.length < 8) {
-      return alert(
-        'Password must be at least 8 characters long'
-      );
-    }
+    // if (!firstName) {
+    //   return alert('First name must not be blank')
+    // }
+    //
+    // if (!lastName) {
+    //   return alert('Last name must not be blank')
+    // }
+    //
+    // if (!email) {
+    //   return alert('Email must not be blank')
+    // }
+    //
+    // if (email.indexOf('@') < 0) {
+    //   return alert('Email must be valid')
+    // }
+    //
+    // if (!password || password.length < 8) {
+    //   return alert(
+    //     'Password must be at least 8 characters long'
+    //   );
+    // }
 
     user = {
       "first_name": firstName,
@@ -53,7 +53,7 @@ $(document).ready(function() {
         window.location.href="/"
       })
       .fail(($xhr) => {
-        alert($xhr.responseText)
+        // alert($xhr.responseText)
       })
   })
 })

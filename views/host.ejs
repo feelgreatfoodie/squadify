@@ -33,23 +33,23 @@
 
       <form class="needs-validation" novalidate>
         <div class="form-row">
-          <div class="col-md-4 mb-3">
+          <div class="col-md-6 mb-3">
             <label for="validationCustom01">Adventure Title</label>
             <input type="text" class="form-control" id="validationCustom01" placeholder="Name your adventure" value="" required>
             <div class="invalid-feedback">
               Please enter an event title.
             </div>
           </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-md-6 mb-3">
             <label for="validationCustom05">Adventure Description</label>
             <input type="text" class="form-control" id="validationCustom02" placeholder="Enter a description" required>
             <div class="invalid-feedback">
               Please provide a description.
             </div>
           </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-md-4 mb-3">
             <label for="validationCustom04">Adventure Date & Time</label>
-              <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" id="validationCustom03" data-toggle="datetimepicker" data-target="#datetimepicker5" required>
+            <input type="text" class="form-control datetimepicker-input" id="datetimepicker5" id="validationCustom03" data-toggle="datetimepicker" data-target="#datetimepicker5" required>
             <div class="invalid-feedback">
               Please select a date and time.
             </div>
@@ -63,23 +63,23 @@
           </div>
           <div class="col-md-4 mb-3">
             <label for="validationCustomUsername">Adventure Difficulty</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-              </div>
-              <input type="text" class="form-control" id="validationCustom05" placeholder="Enter level of difficulty from 1-5" aria-describedby="inputGroupPrepend" required>
+              <select id="eventDifficulty" id="validationCustom05" class="form-control" placeholder="Choose one of the following" required>
+                <option selected>Choose one of the following</option>
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+              </select>
               <div class="invalid-feedback">
                 Please enter level of difficulty.
               </div>
             </div>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="validationCustom03">Adventure Image</label>
+          <div class="col-md-4 mb-3">
+            <label for="validationCustom06">Adventure Image</label>
             <input type="text" class="form-control" id="validationCustom06" placeholder="Image URL" required>
           </div>
-        </div>
-        <div class="form-group">
+          </div>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
             <label class="form-check-label" for="invalidCheck">
@@ -88,10 +88,11 @@
             <div class="invalid-feedback">
               You must agree before submitting.
             </div>
-          </div>
+          </div><hr>
+          <button class="btn btn-primary" type="submit">Post Adventure</button>
         </div>
-        <button class="btn btn-primary" type="submit">Post Adventure</button>
       </form>
+    </div>
 
     </div>
 
@@ -129,7 +130,6 @@
         $('#datetimepicker5').datetimepicker();
       });
     })();
-
   </script>
 </body>
 
