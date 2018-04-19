@@ -10,6 +10,7 @@ const eventsRouter = require('./routes/events');
 const loginRouter = require('./routes/login')
 const dashboardRouter = require('./routes/dashboard')
 const aboutRouter = require('./routes/about')
+const hostRouter = require('./routes/host')
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use('/events', eventsRouter)
 app.use('/login', loginRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/about', aboutRouter)
+app.use('/host', hostRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
