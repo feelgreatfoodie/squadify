@@ -4,13 +4,13 @@ const jwt = require('jsonwebtoken')
 
 /* GET navbar info. */
 router.get('/', function(req, res, next) {
-  let loginOrSignoutText = 'Log in / Register'
+  let loginOrSignout = 'login'
 
   if (req.cookies.token !== undefined) {
-    loginOrSignoutText = 'Sign out'
+    loginOrSignout = 'signout'
   }
 
-  res.send(loginOrSignoutText);
+  res.send(loginOrSignout);
 });
 
 module.exports = router;

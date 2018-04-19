@@ -6,23 +6,28 @@ $(document).ready(function () {
     success: (data) => {
       // UPDATE DOM!
 
+      let inOrOut = data
       let loginOrSignoutText = data
       let loginLink = '/login'
       let dashText = 'Dashboard'
       let dashLink = '/dashboard'
-      // if 'Home' button should NOT appear:
+
+      if (inOrOut === 'login') {
+        loginOrSignoutText = 'Log in / Register'
+        loginLink = '/login'
+      }
+      else if (inOrOut === 'signout') {
+        loginOrSignoutText = 'Sign out'
+        loginLink = '/signout'
+      }
+      // if 'Home' button should appear:
+      if ((pathUrl === '/login') || (pathUrl === '/host')) {
+        loginOrSignoutText = 'Home'
+        loginLink = '/'
+      }
       if (pathUrl === '/dashboard') {
         dashText = 'Home'
         dashLink = '/'
-      }
-      else if ((pathUrl !== '/login') && (pathUrl !== '/host')) {
-        if (data === 'Sign out') {
-          let loginLink = '/'
-        }
-      }
-      else {
-        loginOrSignoutText = 'Home'
-        loginLink = '/'
       }
       $('#pagenavbar').append(`
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
