@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
         // Inserts seed entries
         knex('events').insert([{
               id: 1,
-              owner_id: 3,
+              owner_id: 7,
               title: "Hiking Mount Sanitas with rescue dogs",
               location: "Mount Sanitas",
               difficulty: '2',
@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise) {
             },
             {
               id: 2,
-              owner_id: 2,
+              owner_id: 5,
               title: "Walk with wolves!",
               location: "Nederland, CO",
               difficulty: '5',
@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
             },
             {
               id: 3,
-              owner_id: 4,
+              owner_id: 8,
               title: "Hang Gliding",
               location: "Flatirons",
               difficulty: '3',
@@ -39,7 +39,7 @@ exports.seed = function(knex, Promise) {
             },
             {
               id: 4,
-              owner_id: 3,
+              owner_id: 7,
               title: "Earth Treks Monday night",
               location: "Golden, CO",
               difficulty: '2',
@@ -50,7 +50,7 @@ exports.seed = function(knex, Promise) {
             },
             {
               id: 5,
-              owner_id: 9,
+              owner_id: 2,
               title: "Bicycling Boulder with Eric",
               location: "Boulder, CO",
               difficulty: '3',
@@ -61,8 +61,8 @@ exports.seed = function(knex, Promise) {
             },
             {
               id: 6,
-              owner_id: 2,
-              title: "Cooking with Gordon",
+              owner_id: 6,
+              title: "Camp Cooking with Gordon",
               location: "Golden, CO",
               difficulty: '5',
               image_url: "https://g81-wardogs.herokuapp.com/assets/masterchef.jpg",

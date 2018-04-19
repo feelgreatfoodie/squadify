@@ -6,22 +6,22 @@ exports.seed = function(knex, Promise) {
         // Inserts seed entries
         knex('events_users').insert([{
           events_id: 1,
-          users_id: 3
+          users_id: 7
         }, {
           events_id: 1,
-          users_id: 1
+          users_id: 8
         }, {
           events_id: 1,
-          users_id: 5
-        }, {
-          events_id: 2,
           users_id: 2
         }, {
           events_id: 2,
-          users_id: 4
+          users_id: 5
+        }, {
+          events_id: 2,
+          users_id: 3
         }, {
           events_id: 3,
-          users_id: 4
+          users_id: 8
         }, {
           events_id: 3,
           users_id: 6
@@ -36,22 +36,22 @@ exports.seed = function(knex, Promise) {
           users_id: 7
         }, {
           events_id: 5,
-          users_id: 8
+          users_id: 2
         }, {
           events_id: 5,
           users_id: 9
         }, {
           events_id: 6,
-          users_id: 8
+          users_id: 6
         }, {
           events_id: 6,
-          users_id: 2
+          users_id: 1
         }, {
           events_id: 5,
-          users_id: 11
+          users_id: 10
         }, {
           events_id: 6,
-          users_id: 3
+          users_id: 7
         }
       ])
       ])

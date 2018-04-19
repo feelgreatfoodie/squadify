@@ -1,9 +1,20 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const knex = require('../knex')
 
-/* GET home page. */
+const getTeam = (req, res, next) => {
+  knex('users')
+    .where('id', '<', 5 )
+    .select(['first_name', 'last_name', 'image_url', 'email_address'])
+    .then(users => {
+      res.send(users)
+    })
+}
+
 router.get('/', function(req, res, next) {
-  res.render('about', { title: 'About Team WarDogs' });
-});
+  res.render('about', { title: 'About Team WarDogs' })
+})
+
+router.get('/us', getTeam)
 
 module.exports = router;
