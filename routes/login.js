@@ -37,7 +37,8 @@ const checkPassword = (req, res, next) => {
         if (passwordRes === true) {
           const token = jwt.sign({
             'id': user.id,
-            'first_name': user.first_name
+            'first_name': user.first_name,
+            'last_name': user.last_name
           }, process.env.JWT_KEY)
           res.cookie(`token=${token}; Path=\/;.HttpOnly`)
           res.status(200).send(user)
@@ -77,7 +78,8 @@ const postUser = (req, res, next) => {
       .then(user => {
         const token = jwt.sign({
           'id': user[0].id,
-          'first_name': user[0].first_name
+          'first_name': user[0].first_name,
+          'last_name': user[0].last_name
         }, process.env.JWT_KEY)
         res.cookie(`token=${token}; Path=\/;.HttpOnly`)
         res.status(200).send(user)
