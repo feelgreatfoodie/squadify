@@ -48,3 +48,8 @@
   opacity: .3;
   height: 200px;
 }
+
+.img-thumbnail {
+  max-height: 210px;
+  max-width: 280px
+}
