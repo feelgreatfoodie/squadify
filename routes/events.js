@@ -24,8 +24,6 @@ const verifyJoined = (req, res, next) => {
 
   const events_id = req.params.id
   const users_id = jwt.verify(req.cookies.token, process.env.JWT_KEY).id
-  console.log("events_id", events_id);
-  console.log("users_id", users_id);
   res.locals.registered = false;
 
   knex('events_users')
@@ -52,11 +50,7 @@ const verifyUserEvent = (req, res, next) => {
     })
     .then(match => {
       if (match.length > 0) {
-        // alert('Already registered!')
-        //deleteEvent(req, res, next)
-        res.locals.registered = true;
-        //res.status(200).send()
-        //res.status(400).send('Already registered!')
+        res.locals.registered = true
         next()
       } else next()
     })
@@ -119,46 +113,44 @@ const postEvent = (req, res, next) => {
     })
 }
 
-const joinEvent = (req, res, next) => {
-  const events_id = req.body.eventId
-  const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
-  knex('events_users')
-    .insert({
-      events_id,
-      users_id
-    })
-    .returning('*')
-    .then(entry => {
-      res.status(200).send(entry)
-    })
-    .catch(err => {
-      next(err)
-    })
-}
-
-const unJoinEvent = (req, res, next) => {
-  const events_id = req.body.eventId
-  const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
-  knex('events_users')
-    .where({
-      events_id,
-      users_id
-    })
-    .del()
-    .returning('*')
-    .then(entry => {
-      res.status(200).send(entry)
-    })
-    .catch(err => {
-      next(err)
-    })
-}
+// const joinEvent = (req, res, next) => {
+//   const events_id = req.body.eventId
+//   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
+//   knex('events_users')
+//     .insert({
+//       events_id,
+//       users_id
+//     })
+//     .returning('*')
+//     .then(entry => {
+//       res.status(200).send(entry)
+//     })
+//     .catch(err => {
+//       next(err)
+//     })
+// }
+// 
+// const unJoinEvent = (req, res, next) => {
+//   const events_id = req.body.eventId
+//   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
+//   knex('events_users')
+//     .where({
+//       events_id,
+//       users_id
+//     })
+//     .del()
+//     .returning('*')
+//     .then(entry => {
+//       res.status(200).send(entry)
+//     })
+//     .catch(err => {
+//       next(err)
+//     })
+// }
 
 const toggleJoinEvent = (req, res, next) => {
   const events_id = req.body.eventId
   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
-
-  console.log("res.locals.registered", res.locals.registered);
 
   if (res.locals.registered) {
 
@@ -188,16 +180,11 @@ const toggleJoinEvent = (req, res, next) => {
       .catch(err => {
         next(err)
       })
-
   }
 }
 
-
-
 const updateEvent = (req, res, next) => {
-  const {
-    id
-  } = req.params
+  const { id } = req.params
   const {
     owner_id,
     title,
@@ -261,7 +248,6 @@ router.get('/:id', verifyEvent, verifyJoined, renderEventPage)
 router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
 router.post('/:id', verifyEvent, verifyUserEvent, toggleJoinEvent)
-//router.post('/unJoin/:id', verifyEvent, unJoinEvent)
 router.patch('/:id', verifyEvent, updateEvent)
 router.delete('/:id', verifyEvent, deleteEvent)
 
