@@ -166,7 +166,7 @@ const toggleJoinEvent = (req, res, next) => {
       .del()
       .returning('*')
       .then(entry => {
-        res.status(200).send(entry)
+        res.status(200).send(res.locals.registered)
       })
       .catch(err => {
         next(err)
@@ -179,7 +179,7 @@ const toggleJoinEvent = (req, res, next) => {
       })
       .returning('*')
       .then(entry => {
-        res.status(200).send(entry)
+        res.status(200).send(res.locals.registered)
       })
       .catch(err => {
         next(err)
@@ -257,7 +257,7 @@ router.get('/:id', verifyEvent, verifyJoined, renderEventPage)
 router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
 router.post('/:id', verifyEvent, verifyUserEvent, toggleJoinEvent)
-router.post('/unJoin/:id', verifyEvent, unJoinEvent)
+//router.post('/unJoin/:id', verifyEvent, unJoinEvent)
 router.patch('/:id', verifyEvent, updateEvent)
 router.delete('/:id', verifyEvent, deleteEvent)
 

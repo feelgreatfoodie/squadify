@@ -23,9 +23,18 @@ $(document).ready(function() {
     }
 
     $.ajax(options)
-      .done(function() {
+      .done(function(registered) {
+        console.log(registered);
         // window.location.href="/"
-        $('#joinButton').innerText = "Leave Event"
+        if (registered === true) {
+          $('#joinButton').text("Join Event")
+          $('#joinButton').addClass('btn-outline-success')
+          $('#joinButton').removeClass('btn-outline-danger')
+        } else {
+          $('#joinButton').text("Leave Event")
+          $('#joinButton').addClass('btn-outline-danger')
+          $('#joinButton').removeClass('btn-outline-success')
+        }
         //alert('Successfully joined event!')
       })
       .fail(($xhr) => {
