@@ -39,7 +39,7 @@ const checkPassword = (req, res, next) => {
             'id': user.id,
             'first_name': user.first_name,
             'last_name': user.last_name,
-            'image_url': user.image_url
+            'image_url': user.user_image_url
           }, process.env.JWT_KEY)
           res.cookie(`token=${token}; Path=\/;.HttpOnly`)
           res.status(200).send(user)

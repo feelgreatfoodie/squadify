@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let userFullName = 'User name'
+  let tokenObject = ''
 
   if (req.cookies.token !== undefined) {
     // console.log("req.cookies.token", req.cookies.token);
