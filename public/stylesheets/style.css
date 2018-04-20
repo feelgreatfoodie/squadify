@@ -1,3 +1,7 @@
+.container-fluid {
+  font-family: "Roboto";
+}
+
 .titlerestrict {
   white-space: nowrap;
   overflow: hidden;
@@ -53,6 +57,7 @@
 .aboutEmail {
   font-size: 80%;
 }
+
 .card-img {
   opacity: .3;
   height: 200px;
@@ -77,6 +82,7 @@
   display: flex;
   justify-content: center;
 }
+
 #event-image {
   max-width: 75%;
   margin: 20px;
@@ -117,6 +123,7 @@
 .userBlock {
   padding: 20px;
 }
+
 #registerHere {
   display: none;
 }
