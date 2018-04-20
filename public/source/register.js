@@ -13,28 +13,6 @@ $(document).ready(function() {
     const image_url = $('#inputImageUrl').val().trim()
     const about_user = $('#inputAbout').val().trim()
 
-    // if (!firstName) {
-    //   return alert('First name must not be blank')
-    // }
-    //
-    // if (!lastName) {
-    //   return alert('Last name must not be blank')
-    // }
-    //
-    // if (!email) {
-    //   return alert('Email must not be blank')
-    // }
-    //
-    // if (email.indexOf('@') < 0) {
-    //   return alert('Email must be valid')
-    // }
-    //
-    // if (!password || password.length < 8) {
-    //   return alert(
-    //     'Password must be at least 8 characters long'
-    //   );
-    // }
-
     user = {
       "first_name": firstName,
       "last_name": lastName,

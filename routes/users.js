@@ -34,7 +34,7 @@ const getUsers = (req, res, next) => {
   if (id) {
     knex('users')
       .where('id', id)
-      .select('id', 'first_name', 'last_name', 'email_address', 'image_url', 'about_user')
+      .select('id', 'first_name', 'last_name', 'email_address', 'user_image_url', 'about_user')
       .first()
       .then(user => {
         res.status(200).send(user)
@@ -44,7 +44,7 @@ const getUsers = (req, res, next) => {
       })
   } else {
     knex('users')
-      .select('id', 'first_name', 'last_name', 'email_address', 'image_url', 'about_user')
+      .select('id', 'first_name', 'last_name', 'email_address', 'user_image_url', 'about_user')
       .then(users => {
         res.status(200).send(users)
       })
@@ -61,29 +61,30 @@ const postUser = (req, res, next) => {
     last_name,
     email_address,
     password,
-    image_url,
+    user_image_url,
     about_user
   } = req.body
-
+console.log('hola, me llamo: ', req.body)
   bcrypt.hash(password, 10, (err, hashed_password) => {
     const newUser = {
       'first_name': first_name,
       'last_name': last_name,
       'email_address': email_address,
       'hashed_password': hashed_password,
-      'image_url': image_url,
+      'user_image_url': user_image_url,
       'about_user': about_user
     }
-
+// console.log('buenos dias: ', newUser)
     knex('users')
       .insert(newUser)
-      .returning(['id', 'first_name', 'last_name', 'email_address', 'image_url', 'about_user'])
+      .returning(['id', 'first_name', 'last_name', 'email_address', 'user_image_url', 'about_user'])
       .then(user => {
+        console.log('hola, me llamo user: ', user)
         const token = jwt.sign({
           'id': user[0].id,
           'first_name': user[0].first_name,
           'last_name': user[0].last_name,
-          'image_url': user[0].image_url,
+          'image_url': user[0].user_image_url,
           'about_user': user[0].about_user
         }, process.env.JWT_KEY)
         res.cookie(`token=${token}; Path=\/;.HttpOnly`)
@@ -100,7 +101,7 @@ const updateUser = (req, res, next) => {
   const { first_name, last_name, email_address, password, about_user } = req.body
   knex('users')
     .where('id', id)
-    .update({first_name, last_name, email_address, image_url, about_user})
+    .update({first_name, last_name, email_address, user_image_url, about_user})
     .returning(['first_name', 'last_name', 'email_address'])
     .then(user => {
       res.status(200).send(user[0])
