@@ -21,6 +21,39 @@ const verifyEvent = (req, res, next) => {
     })
 }
 
+const getOwnerEvents = (req, res, next) => {
+  console.log("getOwnerEvents")
+  //res.status(200).send()
+  const users_id = jwt.verify(req.cookies.token, process.env.JWT_KEY).id
+
+  knex('events')
+    .where('owner_id', users_id)
+    .then(events => {
+      res.status(200).send(events)
+    })
+    .catch((err) => {
+      next(err)
+    })
+}
+
+const getJoinedEvents = (req, res, next) => {
+  console.log("getJoinedEvents")
+  //res.status(200).send()
+  const users_id = jwt.verify(req.cookies.token, process.env.JWT_KEY).id
+
+  knex('events_users')
+    .where('users_id', users_id)
+    .join('events', 'events_users.events_id', 'events.id')
+    .then(events => {
+      res.status(200).send(events)
+    })
+    .catch((err) => {
+      next(err)
+    })
+}
+
+
+
 const verifyJoined = (req, res, next) => {
   if (!req.cookies.token)
     next()
@@ -258,6 +291,8 @@ const renderEventPage = (req, res, next) => {
 }
 
 router.get('/', getEvents)
+router.get('/owner/', getOwnerEvents)
+router.get('/joined/', getJoinedEvents)
 router.get('/:id', verifyEvent, verifyJoined, renderEventPage)
 router.get('/data/:id', verifyEvent, getEvents)
 router.post('/', postEvent)
