@@ -13,7 +13,7 @@ $(document).ready(function() {
             <img class="card-img" src=${data[i].image_url} alt="img">
             <div class="card-img-overlay">
             <br>
-              <h5 class="titlerestrict">${data[i].title}</h5>
+              <h5 class="card-text titlerestrict">${data[i].title}</h5>
               <p class="card-text descrestrict">${data[i].description}</p>
               <div class='clickMe'><a class="btn btn-secondary" href="/events/${data[i].id}" role="button">View details</a></div>
           </div>

@@ -56,6 +56,12 @@
 
 .card {
   margin: 10px;
+  box-shadow: 2px 2px #efefef;
+  font-family: "Roboto", sans-serif;
+}
+
+.card-text {
+  text-shadow: 2px 2px 4px #FFF;
 }
 
 #event-image {
@@ -91,4 +97,8 @@
 
 #registerHere {
   display: none;
+}
+
+#pagenavbar {
+  font-family: "Roboto", sans-serif;
 }
