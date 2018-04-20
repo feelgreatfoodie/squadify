@@ -35,8 +35,9 @@
         </div>
         <ul class="list-group list-group-flush">
           <!-- Thinking that as you click on the badge, a div will expand to show the content i.e. Hosting "4" > Click "4" > Dropdown list of events specific user is set as host -->
-          <li class="list-group-item" id="user-host">Hosting <span class="badge badge-info"><%= hostingCount %></span></li>
-          <li class="list-group-item" id="user-going">Participating <span class="badge badge-info"><%= participatingCount %></span></li>
+          <li class="list-group-item" id="user-host">Hosting <span class="badge badge-info ml-1"><%= hostingCount %></span></li>
+          <%# <ul class="list-group pl-5">test</ul> %>
+          <li class="list-group-item" id="user-going">Participating <span class="badge badge-info ml-1"><%= participatingCount %></span></li>
           <!-- <li class="list-group-item" id="user-wish">Wish List <span class="badge badge-info">4</span></li> -->
         </ul>
       </div>
@@ -45,7 +46,7 @@
   </main>
 
   <footer class="container-fluid text-center">
-    <p><br/> &copy;2018 Team War Dogs  -  <a href="https://github.com/ericmbudd/wardogs"><i class="fab fa-github"></i></a></p>
+    <p><br/> &copy;2018 Team War Dogs - <a href="https://github.com/ericmbudd/wardogs"><i class="fab fa-github"></i></a></p>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
