@@ -15,7 +15,7 @@ $(document).ready(function() {
             <br>
               <h5 class="card-text titlerestrict">${data[i].title}</h5>
               <p class="card-text descrestrict">${data[i].description}</p>
-              <div class='clickMe'><a class="btn btn-info" href="/events/${data[i].id}" role="button">View details</a></div>
+              <div class='clickMe'><a class="btn btn-primary" href="/events/${data[i].id}" role="button">View details</a></div>
           </div>
           <br>
           `)
