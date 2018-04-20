@@ -4,7 +4,6 @@ const knex = require('../knex')
 const jwt = require('jsonwebtoken')
 
 const postEvent = (req, res, next) => {
-  console.log('this is the req.body: ', req.body)
   const {
     eventTitle,
     eventDescription,
@@ -14,9 +13,8 @@ const postEvent = (req, res, next) => {
     eventDifficulty,
     eventImage
   } = req.body
-console.log('this is the req.cookies', req.cookies.token)
+
   const users_id = jwt.verify(req.cookies.token, process.env.JWT_KEY).id
-console.log('this is the users_id', users_id)
   const newEvent = {
     'owner_id': users_id,
     'title': eventTitle,
@@ -27,13 +25,18 @@ console.log('this is the users_id', users_id)
     'duration_minutes': duration,
     'description': eventDescription
   }
-console.log('hola, me llamo: ', newEvent)
+
   knex('events')
     .insert(newEvent)
     .returning(['id', 'owner_id', 'title', 'location', 'difficulty', 'image_url', 'start_date_time', 'duration_minutes', 'description'])
     .then(event => {
-      console.log('wasssssup!!!', event)
-      res.status(200).send(event)
+      let events_id = event[0].id
+      let users_id = event[0].owner_id
+      knex('events_users')
+        .insert({events_id, users_id})
+        .then(entry => {
+          res.status(200).send(event[0])
+        })
     })
     .catch(err => {
       next(err)
