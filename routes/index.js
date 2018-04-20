@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  let userFirstName = 'adventurer'
+  let userFirstName = 'Adventurer'
 
   if (req.cookies.token !== undefined) {
     userFirstName = jwt.verify(req.cookies.token, process.env.JWT_KEY).first_name
