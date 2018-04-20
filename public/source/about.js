@@ -18,7 +18,6 @@ $(document).ready(function() {
             </div>
           </div>
           `)
-          console.log(data[i])
       }
     },
     error: function(jqXhr, textStatus, errorThrown) {
