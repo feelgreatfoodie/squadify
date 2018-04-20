@@ -83,3 +83,12 @@
 .hidden {
   display: none;
 }
+
+.clickMe {
+  display: flex;
+  justify-content: center;
+}
+
+#registerHere {
+  display: none;
+}

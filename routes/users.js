@@ -34,7 +34,7 @@ const getUsers = (req, res, next) => {
   if (id) {
     knex('users')
       .where('id', id)
-      .select('id', 'first_name', 'last_name', 'email_address')
+      .select('id', 'first_name', 'last_name', 'email_address', 'image_url', 'about_user')
       .first()
       .then(user => {
         res.status(200).send(user)
@@ -44,7 +44,7 @@ const getUsers = (req, res, next) => {
       })
   } else {
     knex('users')
-      .select('id', 'first_name', 'last_name', 'email_address')
+      .select('id', 'first_name', 'last_name', 'email_address', 'image_url', 'about_user')
       .then(users => {
         res.status(200).send(users)
       })
@@ -60,7 +60,9 @@ const postUser = (req, res, next) => {
     first_name,
     last_name,
     email_address,
-    password
+    password,
+    image_url,
+    about_user
   } = req.body
 
   bcrypt.hash(password, 10, (err, hashed_password) => {
@@ -68,12 +70,14 @@ const postUser = (req, res, next) => {
       'first_name': first_name,
       'last_name': last_name,
       'email_address': email_address,
-      'hashed_password': hashed_password
+      'hashed_password': hashed_password,
+      'image_url': image_url,
+      'about_user': about_user
     }
 
     knex('users')
       .insert(newUser)
-      .returning(['id', 'first_name', 'last_name', 'email_address', 'image_url'])
+      .returning(['id', 'first_name', 'last_name', 'email_address', 'image_url', 'about_user'])
       .then(user => {
         const token = jwt.sign({
           'id': user[0].id,
@@ -92,10 +96,10 @@ const postUser = (req, res, next) => {
 
 const updateUser = (req, res, next) => {
   const { id } = req.params
-  const { first_name, last_name, email_address, password } = req.body
+  const { first_name, last_name, email_address, password, about_user } = req.body
   knex('users')
     .where('id', id)
-    .update({first_name, last_name, email_address})
+    .update({first_name, last_name, email_address, image_url, about_user})
     .returning(['first_name', 'last_name', 'email_address'])
     .then(user => {
       res.status(200).send(user[0])

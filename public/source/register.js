@@ -6,10 +6,12 @@ $(document).ready(function() {
     event.preventDefault();
     var user = {}
 
-    const firstName = $('#inputFirstName').val().trim();
-    const lastName = $('#inputLastName').val().trim();
-    const email = $('#inputEmail').val().trim();
-    const password = $('#inputPassword').val();
+    const firstName = $('#inputFirstName').val().trim()
+    const lastName = $('#inputLastName').val().trim()
+    const email = $('#inputEmail').val().trim()
+    const password = $('#inputPassword').val()
+    const image_url = $('#inputImageUrl').val().trim()
+    const about_user = $('#inputAbout').val().trim()
 
     // if (!firstName) {
     //   return alert('First name must not be blank')
@@ -37,7 +39,9 @@ $(document).ready(function() {
       "first_name": firstName,
       "last_name": lastName,
       "email_address": email,
-      "password": password
+      "password": password,
+      "image_url": image_url,
+      "about_user": about_user
     }
 
     const options = {
