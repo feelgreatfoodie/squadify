@@ -48,6 +48,9 @@
   background: white;
 }
 
+.aboutEmail {
+  font-size: 80%;
+}
 .card-img {
   opacity: .3;
   height: 200px;
