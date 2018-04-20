@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
 const jwt = require('jsonwebtoken')
 
 /* GET navbar info. */
@@ -11,6 +11,6 @@ router.get('/', function(req, res, next) {
   }
 
   res.send(loginOrSignout);
-});
+})
 
-module.exports = router;
+module.exports = router

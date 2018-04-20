@@ -5,7 +5,6 @@ $(document).ready(function() {
     type: 'GET',
     success: (data) => {
       // UPDATE DOM!
-
       for (let i = 0; i < data.length; i++) {
         $('#team').append(`
           <div class="card mx-auto" style="width: 18rem;">

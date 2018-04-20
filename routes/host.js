@@ -50,4 +50,4 @@ router.get('/', function(req, res, next) {
 })
 
 router.post('/', postEvent)
-module.exports = router;
+module.exports = router

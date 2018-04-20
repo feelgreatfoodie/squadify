@@ -5,7 +5,6 @@ $(document).ready(function () {
     type: 'GET',
     success: (data) => {
       // UPDATE DOM!
-
       let inOrOut = data
       let loginOrSignoutText = data
       let loginLink = '/login'
@@ -42,7 +41,7 @@ $(document).ready(function () {
               <a class="nav-link" href="${loginLink}">${loginOrSignoutText}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="${dashLink}">${dashText}</a>
+              <a class="nav-link" id="dash-link" href="${dashLink}">${dashText}</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>

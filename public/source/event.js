@@ -11,10 +11,8 @@ $(document).ready(function() {
       return
     }
 
-
     const eventId = window.location.pathname.match(/[0-9]+/)[0]
     const userToken = window.document.cookie.slice(6)
-
 
     eventUser = {
       "eventId": eventId,
@@ -31,8 +29,6 @@ $(document).ready(function() {
 
     $.ajax(options)
       .done(function(registered) {
-        console.log(registered);
-        // window.location.href="/"
         if (registered === true) {
           $('#joinButton').text("Join Event")
           $('#joinButton').addClass('btn-success')
@@ -42,7 +38,6 @@ $(document).ready(function() {
           $('#joinButton').addClass('btn-danger')
           $('#joinButton').removeClass('btn-success')
         }
-        //alert('Successfully joined event!')
       })
       .fail(($xhr) => {
         $('#joinButton').innerText = "Join Event"

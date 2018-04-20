@@ -15,7 +15,6 @@ const verifyEvent = (req, res, next) => {
     .then(event => {
       if (event.length === 0) res.status(404).send(`No event found with id ${id}`)
       else {
-        //console.log("event", event);
         res.locals.host_id = event[0].owner_id
         next()
       }
@@ -117,47 +116,11 @@ const postEvent = (req, res, next) => {
     })
 }
 
-// const joinEvent = (req, res, next) => {
-//   const events_id = req.body.eventId
-//   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
-//   knex('events_users')
-//     .insert({
-//       events_id,
-//       users_id
-//     })
-//     .returning('*')
-//     .then(entry => {
-//       res.status(200).send(entry)
-//     })
-//     .catch(err => {
-//       next(err)
-//     })
-// }
-//
-// const unJoinEvent = (req, res, next) => {
-//   const events_id = req.body.eventId
-//   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
-//   knex('events_users')
-//     .where({
-//       events_id,
-//       users_id
-//     })
-//     .del()
-//     .returning('*')
-//     .then(entry => {
-//       res.status(200).send(entry)
-//     })
-//     .catch(err => {
-//       next(err)
-//     })
-// }
-
 const toggleJoinEvent = (req, res, next) => {
   const events_id = req.body.eventId
   const users_id = jwt.verify(req.body.userToken, process.env.JWT_KEY).id
 
   if (res.locals.registered) {
-
     knex('events_users')
       .where({
         events_id,
@@ -209,14 +172,14 @@ const emailEventHostOnJoin = (req, res, next) => {
           user: 'rocky.mntn.pols@gmail.com',
           pass: '********'
         }
-      });
+      })
 
       let mailOptions = {
         from: 'rocky.mntn.pols@gmail.com',
         to: host[0].email_address,
         subject: 'Sending Email using Node.js',
         text: 'That was easy!'
-      };
+      }
 
       transporter.sendMail(mailOptions, function(error, info) {
         if (error) {
@@ -224,14 +187,13 @@ const emailEventHostOnJoin = (req, res, next) => {
         } else {
           console.log('Email sent: ' + info.response);
         }
-      });
+      })
 
     })
     .catch(err => {
       next(err)
     })
 }
-
 
 const updateEvent = (req, res, next) => {
   const {
@@ -303,4 +265,4 @@ router.post('/:id', verifyEvent, verifyUserEvent, toggleJoinEvent)
 router.patch('/:id', verifyEvent, updateEvent)
 router.delete('/:id', verifyEvent, deleteEvent)
 
-module.exports = router;
+module.exports = router
