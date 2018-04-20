@@ -27,4 +27,18 @@ $(document).ready(function() {
       console.log('OOPS:', errorThrown)
     }
   })
+
+  $.ajax({
+    url: '/navbar',
+    type: 'GET',
+    success: (data) => {
+      if (data === 'login') {
+        $('#hostEventButton').attr('href', '/login')
+        $('#dash-link').attr('class', 'hidden')
+      } else if (data === 'signout') {
+        $('#hostEventButton').attr('href', '/host')
+      }
+    }
+  })
+
 })
