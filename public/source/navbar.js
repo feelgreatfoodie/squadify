@@ -10,6 +10,8 @@ $(document).ready(function () {
       let loginLink = '/login'
       let dashText = 'Dashboard'
       let dashLink = '/dashboard'
+      let dashHidden = '"'
+      let loginHidden = '"'
 
       if (inOrOut === 'login') {
         loginOrSignoutText = 'Log in / Register'
@@ -22,15 +24,17 @@ $(document).ready(function () {
       if ((pathUrl === '/login') || (pathUrl === '/host')) {
         loginOrSignoutText = 'Home'
         loginLink = '/'
+        loginHidden = '" hidden'
       }
       if (pathUrl === '/dashboard') {
         dashText = 'Home'
         dashLink = '/'
+        dashHidden = '" hidden'
       }
       $('#pagenavbar').append(`
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/">
-        <img src="http://g81-wardogs.herokuapp.com/assets/mountain.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="https://g81-wardogs.herokuapp.com/assets/mountain.svg" width="30" height="30" class="d-inline-block align-top" alt="">
         Squadify
       </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,10 +44,10 @@ $(document).ready(function () {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="${loginLink}">${loginOrSignoutText}</a>
+              <a class="nav-link${loginHidden} href="${loginLink}">${loginOrSignoutText}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="dash-link" href="${dashLink}">${dashText}</a>
+              <a class="nav-link${dashHidden} id="dash-link" href="${dashLink}">${dashText}</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/about">About</a>

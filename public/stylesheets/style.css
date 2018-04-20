@@ -2,6 +2,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #FFF;
 }
 
 .descrestrict {
