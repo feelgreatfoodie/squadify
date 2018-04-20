@@ -3,10 +3,13 @@ const router = express.Router()
 const jwt = require('jsonwebtoken')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+
+const renderDash = (req, res, next) => {
   let userFullName = 'User name'
   let tokenObject = ''
   let about_user = ''
+  let hostingCount = ""
+  let participatingCount = ""
 
   if (req.cookies.token !== undefined) {
     tokenObject = jwt.verify(req.cookies.token, process.env.JWT_KEY)
@@ -18,8 +21,18 @@ router.get('/', function(req, res, next) {
     title: 'Dashboard',
     userFullName: userFullName,
     userImg: `${tokenObject.image_url}`,
-    about_user: about_user
+    about_user: about_user,
+    hostingCount: hostingCount,
+    participatingCount: participatingCount
   })
-})
+}
+
+
+
+
+
+
+
+router.get('/', renderDash)
 
 module.exports = router;
