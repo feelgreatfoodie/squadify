@@ -1,6 +1,5 @@
 .jumbotron {
   background: url('https://g81-wardogs.herokuapp.com/assets/champ.jpg') no-repeat center center;
-  /* background-image: "public/assets/champ.jpg" */
   /* opacity: 0.75; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
