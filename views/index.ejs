@@ -7,12 +7,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   <link rel="stylesheet" href="../stylesheets/style.css">
   <link rel="stylesheet" href="../stylesheets/jumbo.css">
   <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
   <title>
     <%= title %>
   </title>
@@ -30,7 +31,7 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container-fluid" id="jumbo">
-        <h1 class="display-3" id="hello">Hello, <%= userFirstName %>!</h1>
+        <h1 id="hello">Hello,<br/> <%= userFirstName %>!</h1>
         <p>Our mission is to connect active individuals through social activities so that people can share great outdoor experiences.</p>
         <p><a class="btn btn-primary btn-lg" href="/host" role="button" id="hostEventButton">Host an event</a></p>
       </div>
