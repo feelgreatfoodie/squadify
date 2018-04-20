@@ -7,7 +7,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: bold;
-  text-shadow: 2px 2px 4px #FFF;
+  /* text-shadow: 2px 2px 4px #FFF; */
 }
 
 .descrestrict {
@@ -23,6 +23,8 @@
   text-align: justify;
   /* place for '...' */
   padding-right: 1em;
+  color: white;
+  text-shadow: 1px 1px 3px black, 0px 0px 4px grey;
 }
 
 /* create the '...' */
@@ -59,7 +61,7 @@
 }
 
 .card-img {
-  opacity: .3;
+  opacity: .5;
   height: 200px;
 }
 
@@ -75,7 +77,9 @@
 }
 
 .card-text {
-  text-shadow: 2px 2px 4px #FFF;
+  /* text-shadow: 2px 2px 4px #FFF; */
+  color: white;
+  text-shadow: 1px 1px 3px black, 0px 0px 4px grey;
 }
 
 #events {
@@ -193,6 +197,14 @@ However, delay the fade out process for 2.5 seconds */
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+footer {
+  background-color: lightgrey;
+  padding-bottom: 4px;
+}
+
+.bg-light {
+  background-color: lightgrey!important;
+}
 /* Animations to fade the snackbar in and out */
 
 @-webkit-keyframes fadein {
@@ -237,8 +249,4 @@ However, delay the fade out process for 2.5 seconds */
     bottom: 0;
     opacity: 0;
   }
-}
-
-@media(min-width: 700px){
-  .nav-item
 }
