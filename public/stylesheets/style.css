@@ -68,6 +68,10 @@
   text-shadow: 2px 2px 4px #FFF;
 }
 
+#events {
+  display: flex;
+  justify-content: center;
+}
 #event-image {
   max-width: 75%;
   margin: 20px;

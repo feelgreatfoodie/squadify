@@ -8,7 +8,7 @@ $(document).ready(function() {
 
       for (var i = 0; i < data.length; i++) {
         $('#events').append(`
-          <div class="col-md-4 card bg-light text-black">
+          <div class="col-md-4 col-lg-3 card bg-light text-black">
           <br>
             <img class="card-img" src=${data[i].image_url} alt="img">
             <div class="card-img-overlay">
