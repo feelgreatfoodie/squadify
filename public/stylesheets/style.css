@@ -145,6 +145,12 @@
   /* 30px from the bottom */
 }
 
+@media (max-width: 767px) {
+  #techStack {
+    width: 300px;
+    height: 150px;
+  }
+}
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
 
 #snackbar.show {
