@@ -7,7 +7,7 @@ $(document).ready(function() {
       // UPDATE DOM!
       for (let i = 0; i < data.length; i++) {
         $('#team').append(`
-          <div class="card mx-auto" style="width: 18rem;">
+          <div class="card mx-auto col-lg-3" style="width: 18rem;">
             <img class="card-img-top team-img" src=${data[i].user_image_url} alt="Card image cap">
             <div class="card-body">
             <h5 class="titlerestrict">${data[i].first_name} ${data[i].last_name}</h5>
