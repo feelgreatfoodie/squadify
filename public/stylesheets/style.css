@@ -23,6 +23,8 @@
   text-align: justify;
   /* place for '...' */
   padding-right: 1em;
+  color: white;
+  text-shadow: 1px 1px 3px black, 0px 0px 4px grey;
 }
 
 /* create the '...' */
@@ -51,7 +53,7 @@
   height: 1em;
   margin-top: 0.2em;
   /* bg color = bg color under block */
-  /* background: white; */
+  background: white;
 }
 
 .aboutEmail {
