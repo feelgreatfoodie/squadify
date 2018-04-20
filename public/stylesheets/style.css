@@ -63,3 +63,14 @@
   margin: 20px;
   border-radius: 10px;
 }
+
+#techStack {
+  width: 90%;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.techStack {
+  display: flex;
+  justify-content: center;
+}
