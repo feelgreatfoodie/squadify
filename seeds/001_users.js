@@ -11,7 +11,9 @@ exports.seed = function(knex, Promise) {
           email_address: "christianbourlier@gmail.com",
           hashed_password: "$2b$10$tY1M/HeKgkq0ST8nnDfyp.noPA3.YF5J5ITxn0NOjvkPlMDIefRUS",
           user_image_url: 'https://g81-wardogs.herokuapp.com/assets/christian1.jpg',
-          about_user: "Full-Stack Software Engineer, Entrepreneur, and professional poker player with 20 years of relationship based sales/management experience. Passion to build teams, create leaders, and strengthen every collaboration."
+          about_user: "Full-Stack Software Engineer, Entrepreneur, and professional poker player with 20 years of relationship based sales/management experience. Passion to build teams, create leaders, and strengthen every collaboration.",
+          github:"https://github.com/feelgreatfoodie",
+          linkedIn: "https://www.linkedin.com/in/christianbourlier/"
         },{
           id: 2,
           first_name: "Eric",
@@ -19,7 +21,9 @@ exports.seed = function(knex, Promise) {
           email_address: "ericbudd@gmail.com",
           hashed_password: "$2b$10$G7gkb9t2lNdODI/m5UjxDe3MKTSymnm5RIu9yBuQVM.S57npdxovW",
           user_image_url: 'https://g81-wardogs.herokuapp.com/assets/eric.jpg',
-          about_user: "Dynamic, analytical full-stack web developer with experience in product and technical customer management. Strong organizational, speaking and problem-solving skills; a leader who works toward consensus and practical solutions."
+          about_user: "Dynamic, analytical full-stack web developer with experience in product and technical customer management. Strong organizational, speaking and problem-solving skills; a leader who works toward consensus and practical solutions.",
+          github: "https://github.com/ericmbudd/",
+          linkedIn: "http://linkedin.com/in/ericmbudd/"
         },{
           id: 3,
           first_name: "Zach",
@@ -27,7 +31,9 @@ exports.seed = function(knex, Promise) {
           email_address: "zachstevens39@gmail.com",
           hashed_password: "$2b$10$oql58yKNg6gl5YkmbDMe7O7y2wpoL.GpbPRr6atY1jiMb6qMrTaFe",
           user_image_url: 'https://g81-wardogs.herokuapp.com/assets/zach.jpg',
-          about_user: "Full stack web developer with experience in gamifying the problem solving process and seeking inventive solutions."
+          about_user: "Full stack web developer with experience in gamifying the problem solving process and seeking inventive solutions.",
+          github: "https://www.github.com/q3104558",
+          linkedIn: "https://www.linkedin.com/in/zach-stevens/"
         },{
           id: 4,
           first_name: "Michael",
@@ -35,7 +41,9 @@ exports.seed = function(knex, Promise) {
           email_address: "thedevhut@gmail.com",
           hashed_password: "$2b$10$RsM/zo5RyyNL0EGSB4O9U.fN1Nqej77Luy0Pr6ZNzEELFsFKe/Lxi",
           user_image_url: 'https://g81-wardogs.herokuapp.com/assets/michael.jpg',
-          about_user: "Full stack web developer with experience in financial analytics and operations."
+          about_user: "Full stack web developer with experience in financial analytics and operations.",
+          github: "http://github.com/shieldsy123",
+          linkedIn: "http://linkedin.com/in/mtshields"
         },{
           id: 5,
           first_name: "Edmond",

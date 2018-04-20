@@ -105,6 +105,9 @@
   color: #000000;
 }
 
+.smallIcon {
+  font-size: 75%;
+}
 .hidden {
   display: none;
 }
@@ -133,6 +136,10 @@
 
 #pagenavbar {
   font-family: "Roboto", sans-serif;
+}
+
+.event-detail {
+  padding-left: 1em;
 }
 
 /* The snackbar - position it at the bottom and in the middle of the screen */
@@ -170,6 +177,7 @@
     height: 150px;
   }
 }
+
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
 
 #snackbar.show {
