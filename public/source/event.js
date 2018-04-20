@@ -1,10 +1,13 @@
 $(document).ready(function() {
   'use strict';
 
-  function myFunction() {
+  function displaySnackbar(message) {
     // Get the snackbar DIV
-    var x = document.getElementById("joinButton");
+    console.log("run snackbar");
+    console.log(message);
+    var x = document.getElementById("snackbar");
 
+    x.innerText = message
     // Add the "show" class to DIV
     x.className = "show";
 
@@ -47,11 +50,14 @@ $(document).ready(function() {
           $('#joinButton').text("Join Event")
           $('#joinButton').addClass('btn-success')
           $('#joinButton').removeClass('btn-danger')
+          displaySnackbar("You are no longer attending.")
         } else {
           $('#joinButton').text("Leave Event")
           $('#joinButton').addClass('btn-danger')
           $('#joinButton').removeClass('btn-success')
+          displaySnackbar("See you there!")
         }
+
       })
       .fail(($xhr) => {
         $('#joinButton').innerText = "Join Event"
