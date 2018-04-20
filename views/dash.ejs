@@ -25,7 +25,7 @@
   <main role="main">
 
     <div class="container-fluid">
-      <img id="user-pic" class="img-thumbnail" src=<%= userImg %> alt="User Profile Image">
+      <img id="user-pic" class="img-thumbnail" src=<% userImg %> alt="User Profile Image">
       <div class="card">
         <div class="card-block">
           <h4 class="card-title" id="user-name"><%= userFullName %></h4>
@@ -35,7 +35,7 @@
           <!-- Thinking that as you click on the badge, a div will expand to show the content i.e. Hosting "4" > Click "4" > Dropdown list of events specific user is set as host -->
           <li class="list-group-item" id="user-host">Hosting <span class="badge badge-info">1</span></li>
           <li class="list-group-item" id="user-going">Participating <span class="badge badge-info">2</span></li>
-          <li class="list-group-item" id="user-wish">Wish List <span class="badge badge-info">4</span></li>
+          <!-- <li class="list-group-item" id="user-wish">Wish List <span class="badge badge-info">4</span></li> -->
         </ul>
       </div>
     </div>
