@@ -42,15 +42,15 @@ $(document).ready(function () {
           </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link${loginHidden} href="${loginLink}">${loginOrSignoutText}</a>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ml-auto">
+              <a class="nav-link text-lg-right${dashHidden} id="dash-link" href="${dashLink}">${dashText}</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link${dashHidden} id="dash-link" href="${dashLink}">${dashText}</a>
+            <li class="nav-item ml-auto">
+              <a class="nav-link text-lg-right" href="/about">About</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
+            <li class="nav-item ml-auto">
+              <a class="nav-link text-lg-right${loginHidden} href="${loginLink}">${loginOrSignoutText}</a>
             </li>
           </ul>
           <!--<form class="form-inline my-2 my-lg-0">

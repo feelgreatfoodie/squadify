@@ -12,7 +12,9 @@ $(document).ready(function() {
             <img class="card-img-top team-img" src=${data[i].user_image_url} alt="Card image cap">
             <div class="card-body">
             <h5 class="titlerestrict">${data[i].first_name} ${data[i].last_name}</h5>
-            <p class="card-text descrestrict aboutEmail">${data[i].email_address}</p>
+            <p class="aboutEmail">${data[i].email_address}</p>
+            <a href="${data[i].github}"><i class="fab fa-github"></i></a>
+            <a href="${data[i].linkedIn}"><i class="fab fa-linkedin"></i></a>
             </div>
           </div>
           `)
