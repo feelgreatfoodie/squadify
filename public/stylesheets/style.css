@@ -1,3 +1,7 @@
+.container-fluid {
+  font-family: "Roboto";
+}
+
 .titlerestrict {
   white-space: nowrap;
   overflow: hidden;
@@ -60,8 +64,8 @@
 }
 
 .img-thumbnail {
-  max-height: 210px;
-  max-width: 280px
+  max-height: 420px;
+  max-width: 560px
 }
 
 .card {
@@ -108,6 +112,19 @@
 .clickMe {
   display: flex;
   justify-content: center;
+}
+
+.userPic {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+#user-pic {
+  padding: 20px;
+}
+.userBlock {
+  padding: 20px;
 }
 
 #registerHere {
