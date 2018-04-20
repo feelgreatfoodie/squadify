@@ -31,10 +31,23 @@ $(document).ready(function() {
 
     $.ajax(options)
       .done(function() {
-        window.location.href="/"
+        window.location.href = "/"
       })
       .fail(($xhr) => {
         alert($xhr.responseText)
       })
+  })
+
+  $.ajax({
+    url: '/navbar',
+    type: 'GET',
+    success: (data) => {
+      if (data === 'login') {
+        $('#hostEventButton').attr('href', '/login')
+        $('#dash-link').attr('class', 'hidden')
+      } else if (data === 'signout') {
+        $('#hostEventButton').attr('href', '/host')
+      }
+    }
   })
 })

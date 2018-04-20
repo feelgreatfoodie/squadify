@@ -83,7 +83,8 @@ const postUser = (req, res, next) => {
           'id': user[0].id,
           'first_name': user[0].first_name,
           'last_name': user[0].last_name,
-          'image_url': user[0].image_url
+          'image_url': user[0].image_url,
+          'about_user': user[0].about_user
         }, process.env.JWT_KEY)
         res.cookie(`token=${token}; Path=\/;.HttpOnly`)
         res.status(200).send(user)

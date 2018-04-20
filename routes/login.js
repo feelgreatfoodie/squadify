@@ -4,13 +4,6 @@ const knex = require('../knex')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('login', {
-    title: 'Login'
-  })
-})
-
 const checkForExistingEmail = (req, res, next) => {
   const {
     email_address
@@ -39,7 +32,8 @@ const checkPassword = (req, res, next) => {
             'id': user.id,
             'first_name': user.first_name,
             'last_name': user.last_name,
-            'image_url': user.user_image_url
+            'image_url': user.user_image_url,
+            'about_user': user.about_user
           }, process.env.JWT_KEY)
           res.cookie(`token=${token}; Path=\/;.HttpOnly`)
           res.status(200).send(user)
@@ -57,40 +51,11 @@ const checkPassword = (req, res, next) => {
     })
 }
 
-const postUser = (req, res, next) => {
-  const {
-    first_name,
-    last_name,
-    email_address,
-    password
-  } = req.body
-
-  bcrypt.hash(password, 10, (err, hashed_password) => {
-    const newUser = {
-      'first_name': first_name,
-      'last_name': last_name,
-      'email_address': email_address,
-      'hashed_password': hashed_password
-    }
-
-    knex('users')
-      .insert(newUser)
-      .returning(['id', 'first_name', 'last_name', 'email_address', 'image_url'])
-      .then(user => {
-        const token = jwt.sign({
-          'id': user[0].id,
-          'first_name': user[0].first_name,
-          'last_name': user[0].last_name,
-          'image_url': user[0].image_url
-        }, process.env.JWT_KEY)
-        res.cookie(`token=${token}; Path=\/;.HttpOnly`)
-        res.status(200).send(user)
-      })
-      .catch(err => {
-        next(err)
-      })
+router.get('/', function(req, res, next) {
+  res.render('login', {
+    title: 'Login'
   })
-}
+})
 
 router.post('/', checkForExistingEmail, checkPassword)
 
