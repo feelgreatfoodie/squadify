@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  //$('#btn-go').click((event) => {
+
   $.ajax({
     url: '/events',
     type: 'GET',

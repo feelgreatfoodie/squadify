@@ -4,7 +4,7 @@ $(document).ready(function() {
   // eslint-disable-next-line max-statements
   $('#login').submit((event) => {
     event.preventDefault();
-console.log(event)
+
     const email = $('#inputEmailL').val().trim();
     const password = $('#inputPasswordL').val();
 

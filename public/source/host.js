@@ -25,7 +25,7 @@ $(document).ready(function() {
 
     $.ajax(options)
       .done(function() {
-        window.location.href="/"
+        window.location.href = "/"
       })
       .fail(($xhr) => {
         // alert($xhr.responseText)
