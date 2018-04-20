@@ -7,7 +7,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: bold;
-  text-shadow: 2px 2px 4px #FFF;
+  /* text-shadow: 2px 2px 4px #FFF; */
 }
 
 .descrestrict {
@@ -51,7 +51,7 @@
   height: 1em;
   margin-top: 0.2em;
   /* bg color = bg color under block */
-  background: white;
+  /* background: white; */
 }
 
 .aboutEmail {
@@ -59,7 +59,7 @@
 }
 
 .card-img {
-  opacity: .3;
+  opacity: .5;
   height: 200px;
 }
 
@@ -75,7 +75,9 @@
 }
 
 .card-text {
-  text-shadow: 2px 2px 4px #FFF;
+  /* text-shadow: 2px 2px 4px #FFF; */
+  color: white;
+  text-shadow: 1px 1px 3px black, 0px 0px 4px grey;
 }
 
 #events {
