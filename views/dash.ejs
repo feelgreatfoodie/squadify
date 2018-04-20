@@ -25,9 +25,11 @@
   <main role="main">
 
     <div class="container-fluid">
-      <img id="user-pic" class="img-thumbnail" src=<%= userImg %> alt="User Profile Image">
+      <div class="userPic">
+        <img id="user-pic" class="img-thumbnail" src=<%= userImg %> alt="User Profile Image">
+      </div>
       <div class="card">
-        <div class="card-block">
+        <div class="card-block userBlock">
           <h4 class="card-title" id="user-name"><%= userFullName %></h4>
           <p class="card-text" id="user-profile">
             <%= about_user %>

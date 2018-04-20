@@ -57,8 +57,8 @@
 }
 
 .img-thumbnail {
-  max-height: 210px;
-  max-width: 280px
+  max-height: 420px;
+  max-width: 560px
 }
 
 .card {
@@ -106,6 +106,15 @@
   justify-content: center;
 }
 
+.userPic {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.userBlock {
+  padding: 20px;
+}
 #registerHere {
   display: none;
 }
