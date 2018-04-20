@@ -99,6 +99,9 @@
   color: #000000;
 }
 
+.smallIcon {
+  font-size: 75%;
+}
 .hidden {
   display: none;
 }
