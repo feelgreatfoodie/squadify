@@ -130,6 +130,7 @@
 #user-pic {
   padding: 20px;
 }
+
 .userBlock {
   padding: 20px;
 }
@@ -148,6 +149,7 @@
 
 .event-detail {
   padding-left: 1em;
+  /* display: none; */
 }
 
 /* The snackbar - position it at the bottom and in the middle of the screen */
