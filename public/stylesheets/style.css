@@ -7,7 +7,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: bold;
-  /* text-shadow: 2px 2px 4px #FFF; */
+  text-shadow: 2px 2px 4px #FFF;
 }
 
 .descrestrict {
@@ -23,8 +23,6 @@
   text-align: justify;
   /* place for '...' */
   padding-right: 1em;
-  /* color: black; */
-  /* text-shadow: 1px 1px 3px black, 0px 0px 4px grey; */
 }
 
 /* create the '...' */
@@ -61,7 +59,7 @@
 }
 
 .card-img {
-  opacity: .5;
+  opacity: .3;
   height: 200px;
 }
 
@@ -78,8 +76,6 @@
 
 .card-text {
   text-shadow: 2px 2px 4px #FFF;
-  /* color: white; */
-  /* text-shadow: 1px 1px 3px black, 0px 0px 4px grey; */
 }
 
 #events {
@@ -130,7 +126,6 @@
 #user-pic {
   padding: 20px;
 }
-
 .userBlock {
   padding: 20px;
 }
@@ -143,18 +138,8 @@
   font-family: "Roboto", sans-serif;
 }
 
-.navbar {
-  background-color: lightgrey!important;
-}
-
-#navLogo {
-  display: flex;
-  align-items: center;
-}
-
 .event-detail {
   padding-left: 1em;
-  /* display: none; */
 }
 
 /* The snackbar - position it at the bottom and in the middle of the screen */
@@ -192,6 +177,7 @@
     height: 150px;
   }
 }
+
 /* Show the snackbar when clicking on a button (class added with JavaScript) */
 
 #snackbar.show {
@@ -208,9 +194,9 @@ footer {
   padding-bottom: 4px;
 }
 
-.bg-light {
-  /* background-color: lightgrey!important; */
-}
+/* .bg-light {
+  background-color: lightgrey!important;
+} */
 /* Animations to fade the snackbar in and out */
 
 @-webkit-keyframes fadein {

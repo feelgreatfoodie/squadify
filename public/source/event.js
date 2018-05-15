@@ -35,7 +35,6 @@ $(document).ready(function() {
       "eventId": eventId,
       "userToken": userToken,
     }
-
     const options = {
       contentType: 'application/json',
       data: JSON.stringify(eventUser),
