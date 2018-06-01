@@ -12,7 +12,7 @@ const getTeam = (req, res, next) => {
 }
 
 router.get('/', function(req, res, next) {
-  res.render('about', { title: 'About Team WarDogs' })
+  res.render('about', { title: 'About The Development Team' })
 })
 
 router.get('/us', getTeam)
